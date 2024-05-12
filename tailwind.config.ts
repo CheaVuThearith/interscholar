@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      content: {
+        'searchIcon': 'url("./_components/SearchIcon.tsx")'
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

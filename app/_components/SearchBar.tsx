@@ -7,8 +7,7 @@ const SearchBar = (props: Props) => {
   const filterButtons = ["Scholarships", "Extra-Curricular", "Internships"];
   const [filterMenuOn, setFilterMenuOn] = useState<boolean>(false);
   return (
-    <div className="flex justify-center">
-      <div className="fixed z-20 flex w-full flex-col justify-center gap-y-4">
+      <div className="sticky top-5 z-20 flex w-full flex-col justify-center gap-y-4">
         <div className="flex h-14 items-center justify-center gap-x-5">
           {/* Search bar */}
           <div className="relative flex h-14 w-[80%] items-center justify-center overflow-hidden rounded-full border  border-black">
@@ -65,8 +64,6 @@ const SearchBar = (props: Props) => {
           </div>
         )}
       </div>
-      <div className={`mb-6 ${!filterMenuOn ? "h-[56px]" : "h-[114px]"}`}></div>
-    </div>
   );
 };
 

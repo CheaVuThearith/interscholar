@@ -4,10 +4,10 @@ import React, { useState } from 'react'
 type Props = {}
 
 const SearchBar = (props: Props) => {
-const filterButtons = ["Scholarships", "Extra-Curricular", "Interships"]
+const filterButtons = ["Scholarships", "Extra-Curricular", "Internships"]
 const [filterMenuOn, setFilterMenuOn] = useState<boolean>(false)
   return (
-    <div className='flex flex-col gap-y-4 relative justify-center'>
+    <div className='flex flex-col z-20 w-full fixed gap-y-4 justify-center'>
     <div className='flex items-center h-14 justify-around'>
       {/* Search bar */}
 <div className='rounded-full border h-14 overflow-hidden relative border-black w-[80%] flex items-center  justify-center'>

@@ -1,27 +1,20 @@
-# decimal to binary converter
-# if odd append 1 if even append 0
-
-number = 4
-hexadecimal = []
-
-
 def to_binary(number):
     binary = []
     while number > 0:
-        binary.insert(0, (number % 2).__str__())
+        binary.append((number % 2).__str__())
         number //= 2
-    print("".join(binary))
+    print("".join(binary.__reversed__()))
 
 
 def to_octal(number):
     octal = []
     while number > 0:
-        octal.insert(0, (number % 8).__str__())
+        octal.append((number % 8).__str__())
         number //= 8
-    print("".join(octal))
+    print("".join(octal.__reversed__()))
 
 
-def to_hexadecimal(number):
+def to_hexadecimal(number:int):
     hexadecimal = []
     hexa_map = {
         10: "A",
@@ -31,17 +24,19 @@ def to_hexadecimal(number):
         14: "E",
         15: "F",
     }
-    while number > 16:
-        if number < 10:
-            hexadecimal.insert(0, (number % 16).__str__())
-        elif number < 17:
-            hexadecimal.insert(0, hexa_map[number])
+
+    while number > 0:
+        number_to_append = number % 16
+        if number_to_append > 9 and number_to_append < 16:
+            hexadecimal.append(hexa_map[number_to_append])
         else:
-            number //= 16
-    print("hello")
-    print("".join(hexadecimal))
+            hexadecimal.append(number_to_append.__str__())
+        number //= 16
+    print("".join(hexadecimal.__reversed__()))
 
 
-# to_binary(322)
-# to_octal(1822)
-to_hexadecimal(111)
+
+func_list = [to_binary, to_hexadecimal, to_octal]
+
+for i in func_list:
+    i(11259375)

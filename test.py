@@ -33,10 +33,3 @@ def to_hexadecimal(number:int):
             hexadecimal.append(number_to_append.__str__())
         number //= 16
     print("".join(hexadecimal.__reversed__()))
-
-
-
-func_list = [to_binary, to_hexadecimal, to_octal]
-
-for i in func_list:
-    i(11259375)

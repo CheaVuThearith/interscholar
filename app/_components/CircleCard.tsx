@@ -2,9 +2,9 @@ import { ArrowRightIcon } from "@heroicons/react/16/solid";
 import React from "react";
 
 type Props = {
-  name: string;
-  description: string;
-  role: string;
+  name?: string;
+  description?: string;
+  role?: string;
 };
 
 const CircleCard = ({

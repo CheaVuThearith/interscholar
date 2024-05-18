@@ -42,8 +42,9 @@ export default function Home() {
               </li>
             ))}
           </ul>
-          <button className="group flex h-12 w-52 font-semibold items-center justify-center gap-x-2 rounded-3xl bg-[#99bc85]">
-            Explore now <ArrowRightIcon className="group-hover:scale-x-125 size-6 group-hover:translate-x-2 transition-all duration-200" />{" "}
+          <button className="group flex h-12 w-52 items-center justify-center gap-x-2 rounded-3xl bg-[#99bc85] font-semibold">
+            Explore now{" "}
+            <ArrowRightIcon className="size-6 transition-all duration-200 group-hover:translate-x-2 group-hover:scale-x-125" />{" "}
           </button>
         </div>
         <div className="size-96 bg-black"></div>
@@ -51,7 +52,7 @@ export default function Home() {
       {/* features  */}
       <div className=" flex flex-col items-center gap-y-20 px-44 py-20 xl:items-stretch">
         <h1 className="text-6xl font-bold">Our Features</h1>
-        <div className="flex flex-wrap justify-center items-center gap-8">
+        <div className="flex flex-wrap items-center justify-center gap-8">
           <Card title="Resources">
             <InformationCircleIcon className="size-44" />
           </Card>
@@ -69,14 +70,11 @@ export default function Home() {
       {/* Our Team */}
       <div className="flex flex-col items-center justify-center gap-y-16 bg-[#e1f0da] px-44 py-20">
         <h1 className="text-6xl font-bold">Our Team</h1>
-        <div className="flex justify-around gap-12 flex-wrap w-full">
-        <CircleCard/>
-        <CircleCard/>
-        <CircleCard/>
+        <div className="flex w-full flex-wrap justify-around gap-12">
+          <CircleCard />
+          <CircleCard />
+          <CircleCard />
         </div>
-
-
-
       </div>
     </>
   );

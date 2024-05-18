@@ -16,7 +16,7 @@ const CircleCard = ({
     <div className="flex max-w-96 flex-col items-center justify-center gap-y-3">
       <div className="size-60 rounded-full bg-black"></div>
       <div className="flex flex-col items-center gap-y-1">
-        <p className="text-3xl font-semibold">{name}</p>
+        <p className="text-3xl text-[#333333] font-semibold">{name}</p>
         <p className="text-[#515050]">{role}</p>
       </div>
       <p className="text-center text-[#515050]">{description}</p>

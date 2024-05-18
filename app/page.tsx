@@ -46,7 +46,7 @@ export default function Home() {
       </div>
       {/* features  */}
       <div className=" flex flex-col items-center gap-y-20 px-44 py-20 xl:items-stretch">
-        <h1 className="text-6xl font-bold">Our Features</h1>
+        <h1 className="text-6xl text-[#333333] font-bold">Our Features</h1>
         <div className="flex flex-wrap items-center justify-center gap-8">
           <Card title="Resources">
             <InformationCircleIcon className="size-44" />
@@ -64,7 +64,7 @@ export default function Home() {
       </div>
       {/* Our Team */}
       <div className="flex flex-col items-center justify-center gap-y-16 bg-[#e1f0da] px-44 py-20">
-        <h1 className="text-6xl font-bold">Our Team</h1>
+        <h1 className="text-6xl text-[#333333] font-bold">Our Team</h1>
         <div className="flex w-full flex-wrap justify-around gap-12">
           <CircleCard />
           <CircleCard />

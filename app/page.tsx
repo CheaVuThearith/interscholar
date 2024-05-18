@@ -2,7 +2,10 @@ import {
       ArrowLeftEndOnRectangleIcon,
       ArrowLeftIcon,
       ArrowRightIcon,
+      BuildingLibraryIcon,
       CheckCircleIcon,
+      InformationCircleIcon,
+      QuestionMarkCircleIcon,
 } from "@heroicons/react/16/solid";
 import OpportunityCard from "./_components/OpportunityCard";
 import SearchBar from "./_components/SearchBar";
@@ -56,13 +59,30 @@ export default function Home() {
                         <div className="size-96 bg-black"></div>
                   </div>
                   {/* features  */}
-                  <div className=" flex flex-col">
-                        <h1 className="text-6xl">Features</h1>
-                        <div className="flex gap-x-4">
-                              <Card title="Test1"></Card>
-                              <Card title="Test1"></Card>
-                              <Card title="asd"></Card>
-                              <Card title="Test1"></Card>
+                  <div className=" flex px-44 lg:items-stretch items-center py-20 gap-y-16 flex-col">
+                        <h1 className="text-6xl font-bold">Our Features</h1>
+                        <div className="flex lg:flex-row gap-y-5 flex-col items-center gap-x-4">
+                              <Card title="Resources"><InformationCircleIcon className="size-44"/></Card>
+                              <Card title="Assisted Application"><BuildingLibraryIcon className="size-44"/></Card>
+                              <Card title="Resources"><InformationCircleIcon className="size-44"/></Card>
+                              <Card title="Assisted Application"><BuildingLibraryIcon className="size-44"/></Card>
+                        </div>
+                  </div>
+                  {/* Our Team */}
+                  <div className="items-center flex-col flex bg-[#e1f0da] px-44 py-20 justify-center">
+                        <h1 className="text-6xl font-bold">Our Team</h1>
+                        <div className="flex flex-col gap-y-3 justify-center items-center">
+                              <div className="size-60 bg-black rounded-full"></div>
+                              <div className="flex items-center flex-col">
+                              <p className="text-3xl font-semibold">Name Name</p>
+                              <p className="text-[#515050]">Role</p>
+                              </div>
+                              <p className="text-[#515050]">About Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id molestiae ut velit ea est eos sequi facere dolorem saepe ducimus?</p>
+                        <button className="flex h-12 w-52 font-semibold items-center justify-center gap-x-2 rounded-3xl bg-[#99bc85]">
+                                    Read More{" "}
+                                    <ArrowRightIcon className=" size-8" />{" "}
+                              </button>
+
                         </div>
                   </div>
             </>

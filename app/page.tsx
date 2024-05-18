@@ -1,14 +1,9 @@
 import {
-  ArrowLeftEndOnRectangleIcon,
-  ArrowLeftIcon,
   ArrowRightIcon,
   BuildingLibraryIcon,
   CheckCircleIcon,
-  InformationCircleIcon,
-  QuestionMarkCircleIcon,
+  InformationCircleIcon
 } from "@heroicons/react/16/solid";
-import OpportunityCard from "./_components/OpportunityCard";
-import SearchBar from "./_components/SearchBar";
 import Card from "./_components/Card";
 import CircleCard from "./_components/CircleCard";
 

@@ -1,6 +1,7 @@
 import {
   ArrowRightIcon,
   BuildingLibraryIcon,
+  ChatBubbleLeftRightIcon,
   CheckCircleIcon,
   InformationCircleIcon,
 } from "@heroicons/react/16/solid";
@@ -16,6 +17,7 @@ export default function Home() {
   ];
   return (
     <>
+    {/* Hero */}
       <section className="bg-[#e1f0da] p-28">
         <div className="mx-auto flex max-w-screen-2xl flex-col items-center justify-between gap-y-12 xl:flex-row xl:items-stretch">
           <div className="flex flex-col gap-y-7 xl:w-[700px]">
@@ -44,7 +46,7 @@ export default function Home() {
               <ArrowRightIcon className="size-6 transition-all duration-200 group-hover:translate-x-2 group-hover:scale-x-125" />{" "}
             </button>
           </div>
-          <div className="size-96 bg-black"></div>
+            <img src="book.gif" className="h-96"></img>
         </div>
       </section>
       {/* features  */}
@@ -119,7 +121,7 @@ xl:flex-row xl:items-stretch"
               <ArrowRightIcon className="size-6 transition-all duration-200 group-hover:translate-x-2 group-hover:scale-x-125" />{" "}
             </button>
           </div>
-          <div className="size-96 bg-black"></div>
+          <ChatBubbleLeftRightIcon className="size-96 rotate-12"/>
         </div>
       </section>
     </>

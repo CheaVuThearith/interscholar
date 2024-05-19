@@ -12,7 +12,7 @@ const Footer = (props: Props) => {
   ];
   const year = (new Date).getFullYear()
   return (
-    <section className="p-28 py-10">
+    <section className="px-6 py-10">
         <div className="flex flex-wrap items-center md:justify-between justify-center gap-8 max-w-screen-2xl mx-auto">
       <ul className="flex flex-wrap md:justify-start justify-center gap-y-1 text-xl gap-x-4 text-center">
         {linkLists.map((link, index) => (

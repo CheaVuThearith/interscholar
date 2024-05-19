@@ -18,12 +18,12 @@ export default function Home() {
   return (
     <>
     {/* Hero */}
-      <section className="bg-[#e1f0da] p-28">
+      <section className="bg-[#e1f0da] py-20 px-6">
         <div className="mx-auto flex max-w-screen-2xl flex-col items-center justify-between gap-y-12 xl:flex-row xl:items-stretch">
-          <div className="flex flex-col gap-y-7 xl:w-[700px]">
+          <div className="flex flex-col gap-y-7 max-w-[700px]">
             <div className="flex flex-col gap-y-4">
               <h1 className="text-6xl font-semibold">
-                Find All <span className="text-[#85bd71]">Opportunities</span>{" "}
+                Find <span className="sm:hidden block">Everything</span> <span className="hidden sm:block">All</span> <span className="hidden sm:block text-[#85bd71]">Opportunities</span>{" "}
                 Here!
               </h1>
               <p className="text-[#515050]">
@@ -46,11 +46,11 @@ export default function Home() {
               <ArrowRightIcon className="size-6 transition-all duration-200 group-hover:translate-x-2 group-hover:scale-x-125" />{" "}
             </button>
           </div>
-            <img src="book.gif" className="w-[720px]"></img>
+            <img src="book.gif" className="sm:block hidden grow h-auto w-[720px] object-cover shrink-0"></img>
         </div>
       </section>
       {/* features  */}
-      <section className="px-44 py-20">
+      <section className="px-6 py-20">
         <div
           className="mx-auto flex max-w-screen-2xl flex-col items-center
 gap-y-20 xl:items-stretch"
@@ -73,7 +73,7 @@ gap-y-20 xl:items-stretch"
         </div>
       </section>
       {/* Our Team */}
-      <section className="bg-[#e1f0da] px-44 py-20">
+      <section className="bg-[#e1f0da] px-6 py-20">
         <div className="mx-auto flex max-w-screen-2xl flex-col items-center justify-center gap-y-16">
           <h1 className="text-6xl font-bold ">Our Team</h1>
           <div className="flex w-full flex-wrap justify-around gap-12">
@@ -84,7 +84,7 @@ gap-y-20 xl:items-stretch"
         </div>
       </section>
       {/* Recently added */}
-      <div className="px-44 py-20">
+      <section className="px-6 py-20">
         <div
           className="mx-auto flex max-w-screen-2xl flex-col items-center 
 gap-y-20 xl:items-stretch"
@@ -97,9 +97,9 @@ gap-y-20 xl:items-stretch"
             <RecentAddCard />
           </div>
         </div>
-      </div>
+      </section>
       {/* Contact */}
-      <section className="bg-[#e1f0da] p-28">
+      <section className="bg-[#e1f0da] px-6 py-20">
         <div
           className="mx-auto flex max-w-screen-2xl flex-col items-center justify-between gap-y-12
 xl:flex-row xl:items-stretch"
@@ -121,7 +121,7 @@ xl:flex-row xl:items-stretch"
               <ArrowRightIcon className="size-6 transition-all duration-200 group-hover:translate-x-2 group-hover:scale-x-125" />{" "}
             </button>
           </div>
-          <ChatBubbleLeftRightIcon className="size-96 rotate-12"/>
+          <ChatBubbleLeftRightIcon className="sm:block hidden size-96 rotate-12"/>
         </div>
       </section>
     </>

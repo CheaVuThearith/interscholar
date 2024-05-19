@@ -16,7 +16,7 @@ const Navbar = (props: Props) => {
           <img src="interscholarlogo.webp" alt="logo" />
         </div>
 
-        <div className="absolute inset-x-0 hidden items-center justify-center gap-x-12 xl:flex">
+        <div className="absolute -z-10 inset-x-0 hidden items-center justify-center gap-x-12 xl:flex">
           {pages.map((page, index) => (
             <Link key={index} className="text-lg" href={page.toLowerCase()}>
               {page}

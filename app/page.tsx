@@ -46,7 +46,7 @@ export default function Home() {
               <ArrowRightIcon className="size-6 transition-all duration-200 group-hover:translate-x-2 group-hover:scale-x-125" />{" "}
             </button>
           </div>
-            <img src="book.gif" className="h-96"></img>
+            <img src="book.gif" className="w-[720px]"></img>
         </div>
       </section>
       {/* features  */}

@@ -23,7 +23,7 @@ export default function Home() {
           <div className="flex flex-col gap-y-7 max-w-[700px]">
             <div className="flex flex-col gap-y-4">
               <h1 className="text-6xl font-semibold">
-                Find <span className="sm:hidden block">Everything</span> <span className="hidden sm:block">All</span> <span className="hidden sm:block text-[#85bd71]">Opportunities</span>{" "}
+                Find <span className="sm:hidden block text-[#85bd71]">Everything</span> <span className="hidden sm:block">All</span> <span className="hidden sm:block text-[#85bd71]">Opportunities</span>{" "}
                 Here!
               </h1>
               <p className="text-[#515050]">

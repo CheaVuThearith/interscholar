@@ -7,14 +7,14 @@ const Footer = (props: Props) => {
     "Our Vision",
     "Features",
     "Our Team",
-    "Recently added",
+    "Recently Added",
     "Contact",
   ];
   const year = (new Date).getFullYear()
   return (
     <section className="p-28 py-10">
         <div className="flex flex-col gap-3 max-w-screen-2xl mx-auto">
-      <ul className="flex text-xl gap-x-12">
+      <ul className="flex text-xl gap-x-12 text-center">
         {linkLists.map((link, index) => (
             <li key={index}>
             <a href={link.replace(" ", "").toLowerCase()}>{link}</a>

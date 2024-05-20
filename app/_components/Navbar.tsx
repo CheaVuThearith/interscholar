@@ -11,7 +11,7 @@ const Navbar = (props: Props) => {
   const pages = ["Scholarships", "Programs", "Services"];
   return (
     <>
-      <div className="sticky inset-x-10 top-0 flex h-24 overflow-hidden items-center justify-center gap-6 bg-[#ffffff] p-8 drop-shadow-lg xl:justify-between">
+      <div className="sticky z-10 inset-x-10 top-0 flex h-24 overflow-hidden items-center justify-center gap-6 bg-[#ffffff] p-8 drop-shadow-lg xl:justify-between">
         <div className="size-24 after:bottom-5 after:left-2 relative bottom-2 after:content-['InterScholar'] after:size-20 after:font-semibold after:text-sm after:relative after: after:text-[#fa9183]">
           <img src="interscholarlogo.webp" alt="logo" />
         </div>

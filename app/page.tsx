@@ -59,10 +59,10 @@ export default function Home() {
                                                 </li>
                                           ))}
                                     </ul>
-                                    <button className="group flex h-12 w-52 items-center justify-center gap-x-2 rounded-3xl bg-[#99bc85] font-semibold">
+                                    <a href="/scholarships" className="group flex h-12 w-52 items-center justify-center gap-x-2 rounded-3xl bg-[#99bc85] font-semibold">
                                           Explore now{" "}
                                           <ArrowRightIcon className="size-6 transition-all duration-200 group-hover:translate-x-2 group-hover:scale-x-125" />{" "}
-                                    </button>
+                                    </a>
                               </div>
                               <img
                                     src="book.gif"

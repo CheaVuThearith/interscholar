@@ -24,7 +24,7 @@ const EventCard = ({
   return (
       <div className={`${className} flex flex-col items-start justify-center gap-y-3`}>
         <div className="aspect-square w-72 lg:w-80 rounded-xl bg-black"></div>
-        <div className="flex flex-col items-start gap-y-1">
+        <div className="flex w-72 flex-col items-start gap-y-1">
           <p className="text-xl font-semibold text-[#85a6bc]">{name}</p>
           <p className="text-[#515050]">{organization}</p>
         </div>

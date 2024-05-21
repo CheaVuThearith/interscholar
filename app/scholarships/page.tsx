@@ -28,15 +28,25 @@ const page = ({ searchParams }: Props) => {
   return (
     <>
       <div>
-        <div className="mx-auto mt-20 flex w-[90%] flex-col items-center justify-center gap-y-20 rounded-xl bg-white lg:p-6 p-0 py-20 pb-10 shadow-lg">
-          <div className="grid w-[96%] gap-12" style={{
-            gridTemplateColumns:"repeat(auto-fill, minmax(368px, 1fr))"
-          }}>
+        <div className="mx-auto mt-20 flex w-[90%] flex-col items-center justify-center gap-y-20 rounded-xl bg-white p-0 py-20 pb-10 shadow-lg">
+          <div
+            className="grid w-full gap-12"
+            style={{
+              gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+            }}
+          >
             {shownItems.map((entry, index) => (
-              <EventCard className="hover:shadow-xl transition-all cursor-pointer duration-200 transform max-w-[368px] rounded-xl p-6 justify-self-center hover:border hover:scale-105 self-start" key={index} name={entry} />
+              <EventCard
+                className="max-w-[368px] transform cursor-pointer self-start justify-self-center rounded-xl p-0 lg:p-6 transition-all duration-200 hover:scale-105 hover:border hover:shadow-xl"
+                key={index}
+                name={entry}
+              />
             ))}
           </div>
-          <PaginationControls className=" mx-auto lg:me-0 lg:ms-auto" data={entries} />
+          <PaginationControls
+            className=" mx-auto lg:me-0 lg:ms-auto"
+            data={entries}
+          />
         </div>
       </div>
     </>

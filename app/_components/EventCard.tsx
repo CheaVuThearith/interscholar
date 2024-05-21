@@ -23,12 +23,12 @@ const EventCard = ({
 }: Props) => {
   return (
       <div className={`${className} flex flex-col items-start justify-center gap-y-3`}>
-        <div className="size-80 rounded-xl bg-black"></div>
+        <div className="aspect-square w-72 lg:w-80 rounded-xl bg-black"></div>
         <div className="flex flex-col items-start gap-y-1">
           <p className="text-xl font-semibold text-[#85a6bc]">{name}</p>
           <p className="text-[#515050]">{organization}</p>
         </div>
-        <div className="flex w-full items-center justify-between">
+        <div className="flex items-center w-full justify-between">
           <div className="flex flex-col gap-y-1">
             <p className="flex items-center gap-x-1">
               <CalendarDaysIcon className="size-7" /> {date}

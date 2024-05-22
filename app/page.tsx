@@ -28,21 +28,21 @@ const team: teamType[] = [
     role: "Developer",
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi totam dolores sunt consequuntur quidem veritatis sapiente eligendi dicta. Aspernatur, harum!",
-    picture: "team/cheavuthearith.webp",
+    picture: "cheavuthearith.webp",
   },
   {
     name: "Song Uylong",
     role: "UX/UI Design",
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi totam dolores sunt consequuntur quidem veritatis sapiente eligendi dicta. Aspernatur, harum!",
-    picture: "team/songuylong.webp",
+    picture: "songuylong.webp",
   },
   {
     name: "Chan Panha",
     role: "Researcher",
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi totam dolores sunt consequuntur quidem veritatis sapiente eligendi dicta. Aspernatur, harum!",
-    picture: "team/chanpanha.webp",
+    picture: "chanpanha.webp",
   },
 ];
 
@@ -124,7 +124,7 @@ gap-y-20 xl:items-stretch"
           <div className="flex w-full flex-wrap justify-around gap-12">
             {/* Chea VuThearith */}
             <CircleCard
-              className="scale-[250%] relative top-6 right-2"
+              className="relative right-2 top-6 scale-[250%]"
               name={team[0].name}
               picture={team[0].picture}
               role={team[0].role}
@@ -132,8 +132,8 @@ gap-y-20 xl:items-stretch"
             />
             {/* Song Uylong */}
             <CircleCard
-              className="scale-[350%] relative right-14"
-              style={{objectPosition: "0% 40%"}}
+              className="relative right-14 scale-[350%]"
+              style={{ objectPosition: "0% 40%" }}
               name={team[1].name}
               picture={team[1].picture}
               role={team[1].role}
@@ -141,8 +141,8 @@ gap-y-20 xl:items-stretch"
             />
             {/* Chan Panha */}
             <CircleCard
-              style={{objectPosition: "50% 30%"}}
-              className="scale-110 relative right-2"
+              style={{ objectPosition: "50% 30%" }}
+              className="relative right-2 scale-110"
               name={team[2].name}
               picture={team[2].picture}
               role={team[2].role}

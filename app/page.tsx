@@ -58,7 +58,7 @@ export default function Home() {
           </div>
           <img
             src="book.gif"
-            className="hidden h-auto w-[720px] shrink-0 grow object-cover sm:block"
+            className="mix-blend-screen hidden h-auto w-[720px] shrink-0 grow object-cover sm:block"
           ></img>
         </div>
       </section>

@@ -1,20 +1,28 @@
 import { ArrowRightIcon } from "@heroicons/react/16/solid";
-import React from "react";
+import React, { CSSProperties } from "react";
 
 type Props = {
   name?: string;
   description?: string;
   role?: string;
+  picture?: string;
+  className?:string
+  style?:CSSProperties
 };
 
 const CircleCard = ({
   name = "Name",
   description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, molestias.",
   role = "Role",
+  picture,
+  style,
+  className,
 }: Props) => {
   return (
     <div className="flex max-w-96 flex-col items-center justify-center gap-y-3">
-      <div className="size-60 rounded-full bg-black"></div>
+      <div className="size-60 rounded-full overflow-hidden">
+        <img className={`${className} size-60 rounded-full object-cover`} style={style} src={picture} alt={name} />
+      </div>
       <div className="flex flex-col items-center gap-y-1">
         <p className="text-3xl font-semibold">{name}</p>
         <p className="text-[#515050]">{role}</p>

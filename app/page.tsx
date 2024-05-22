@@ -9,12 +9,44 @@ import Card from "./_components/FeatureCard";
 import CircleCard from "./_components/CircleCard";
 import RecentAddCard from "./_components/RecentAddCard";
 
+const checkList = [
+  "Comprehensive Coverage",
+  "Convenience at Your Fingertips",
+  "Expert Support",
+];
+
+interface teamType {
+  name: string;
+  role: string;
+  description: string;
+  picture: string;
+}
+
+const team: teamType[] = [
+  {
+    name: "Chea VuThearith",
+    role: "Developer",
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi totam dolores sunt consequuntur quidem veritatis sapiente eligendi dicta. Aspernatur, harum!",
+    picture: "/team/cheavuthearith.webp",
+  },
+  {
+    name: "Song Uylong",
+    role: "UX/UI Design",
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi totam dolores sunt consequuntur quidem veritatis sapiente eligendi dicta. Aspernatur, harum!",
+    picture: "/team/songuylong.webp",
+  },
+  {
+    name: "Chan Panha",
+    role: "Researcher",
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi totam dolores sunt consequuntur quidem veritatis sapiente eligendi dicta. Aspernatur, harum!",
+    picture: "/team/chanpanha.webp",
+  },
+];
+
 export default function Home() {
-  const checkList = [
-    "Comprehensive Coverage",
-    "Convenience at Your Fingertips",
-    "Expert Support",
-  ];
   return (
     <>
       {/* Hero */}
@@ -23,14 +55,14 @@ export default function Home() {
           <div className="flex max-w-[700px] flex-col gap-y-7">
             <div className="flex flex-col gap-y-4">
               <h1 className="text-6xl font-semibold">
-                Find{" "}
+                Find
                 <span className="block text-[#85bd71] sm:hidden">
                   Everything
-                </span>{" "}
-                <span className="hidden sm:block">All</span>{" "}
+                </span>
+                <span className="hidden sm:block">All</span>
                 <span className="hidden text-[#85bd71] sm:block">
                   Opportunities
-                </span>{" "}
+                </span>
                 Here!
               </h1>
               <p className="text-[#515050]">
@@ -52,13 +84,13 @@ export default function Home() {
               href="/scholarships"
               className="group flex h-12 w-52 items-center justify-center gap-x-2 rounded-3xl bg-[#99bc85] font-semibold"
             >
-              Explore now{" "}
-              <ArrowRightIcon className="size-6 transition-all duration-200 group-hover:translate-x-2 group-hover:scale-x-125" />{" "}
+              Explore now
+              <ArrowRightIcon className="size-6 transition-all duration-200 group-hover:translate-x-2 group-hover:scale-x-125" />
             </a>
           </div>
           <img
             src="book.gif"
-            className="mix-blend-screen hidden h-auto w-[720px] shrink-0 grow object-cover sm:block"
+            className="hidden h-auto w-[720px] shrink-0 grow object-cover mix-blend-screen sm:block"
           ></img>
         </div>
       </section>
@@ -90,9 +122,32 @@ gap-y-20 xl:items-stretch"
         <div className="mx-auto flex max-w-screen-2xl flex-col items-center justify-center gap-y-16">
           <h1 className="text-6xl font-bold ">Our Team</h1>
           <div className="flex w-full flex-wrap justify-around gap-12">
-            <CircleCard />
-            <CircleCard />
-            <CircleCard />
+            {/* Chea VuThearith */}
+            <CircleCard
+              className="scale-[250%] relative top-6 right-2"
+              name={team[0].name}
+              picture={team[0].picture}
+              role={team[0].role}
+              description={team[0].description}
+            />
+            {/* Song Uylong */}
+            <CircleCard
+              className="scale-[350%] relative right-14"
+              style={{objectPosition: "0% 40%"}}
+              name={team[1].name}
+              picture={team[1].picture}
+              role={team[1].role}
+              description={team[1].description}
+            />
+            {/* Chan Panha */}
+            <CircleCard
+              style={{objectPosition: "50% 30%"}}
+              className="scale-110 relative right-2"
+              name={team[2].name}
+              picture={team[2].picture}
+              role={team[2].role}
+              description={team[2].description}
+            />
           </div>
         </div>
       </section>
@@ -131,7 +186,7 @@ xl:flex-row xl:items-stretch"
             </div>
             <button className="group flex h-16 w-56 items-center justify-center gap-x-2 rounded-full bg-[#525ceb] font-semibold text-white">
               Contact Us
-              <ArrowRightIcon className="size-6 transition-all duration-200 group-hover:translate-x-2 group-hover:scale-x-125" />{" "}
+              <ArrowRightIcon className="size-6 transition-all duration-200 group-hover:translate-x-2 group-hover:scale-x-125" />
             </button>
           </div>
           <ChatBubbleLeftRightIcon className="hidden size-96 rotate-12 sm:block" />

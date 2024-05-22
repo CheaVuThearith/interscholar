@@ -51,7 +51,7 @@ const PaginationControls = ({ amountOfPages, className }: Props) => {
             >
               1
             </button>,
-            page < amountOfPages && (
+            (page < amountOfPages) && (
               <button
                 key="current"
                 onClick={() => toPage(page > 2 ? page : 2)}

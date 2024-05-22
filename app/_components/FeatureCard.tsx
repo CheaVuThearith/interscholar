@@ -9,7 +9,7 @@ type Props = {
 const Card = ({ title, children }: Props) => {
   return (
     <div
-      className='after:delay-500 after:content-["Loremsasdasfdhqashfbjakjsbfkajsgfdiqhwgrjfhasfhasgfgaeyudfgfqasuyihfgauhsdghasdfgasjhdasdagsrhf"] after:absolute overflow-visible after:top-[300px] after:w-max after:rounded-lg after:duration-200 after:opacity-0 hover:after:opacity-100 after:transition-all after:shadow-lg after:p-5 after:bg-white after:shadow-[#000000a6] after:h-36 after:text-black relative flex size-64 flex-col rounded-xl bg-[#e1f0da]'
+      className='xl:after:delay-500 xl:after:content-["Loremsasdasfdhqashfbjakjsbfkajsgfdiqhwgrjfhasfhasgfgaeyudfgfqasuyihfgauhsdghasdfgasjhdasdagsrhf"] xl:after:absolute overflow-visible xl:after:top-[270px] xl:after:w-max xl:after:rounded-lg xl:after:duration-200 xl:after:opacity-0 hover:xl:after:opacity-100 xl:after:transition-all xl:after:shadow-lg xl:after:p-5 xl:after:bg-white xl:after:shadow-[#000000a6] xl:after:h-36 xl:after:text-black relative flex size-64 flex-col rounded-xl bg-[#e1f0da]'
     >
       <div className="flex h-[75%] w-full items-center justify-center overflow-hidden">
         {children}

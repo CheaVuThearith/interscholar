@@ -28,21 +28,21 @@ const team: teamType[] = [
     role: "Developer",
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi totam dolores sunt consequuntur quidem veritatis sapiente eligendi dicta. Aspernatur, harum!",
-    picture: "/team/cheavuthearith.webp",
+    picture: "team/cheavuthearith.webp",
   },
   {
     name: "Song Uylong",
     role: "UX/UI Design",
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi totam dolores sunt consequuntur quidem veritatis sapiente eligendi dicta. Aspernatur, harum!",
-    picture: "/team/songuylong.webp",
+    picture: "team/songuylong.webp",
   },
   {
     name: "Chan Panha",
     role: "Researcher",
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi totam dolores sunt consequuntur quidem veritatis sapiente eligendi dicta. Aspernatur, harum!",
-    picture: "/team/chanpanha.webp",
+    picture: "team/chanpanha.webp",
   },
 ];
 

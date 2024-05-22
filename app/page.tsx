@@ -5,7 +5,7 @@ import {
   CheckCircleIcon,
   InformationCircleIcon,
 } from "@heroicons/react/16/solid";
-import Card from "./_components/Card";
+import Card from "./_components/FeatureCard";
 import CircleCard from "./_components/CircleCard";
 import RecentAddCard from "./_components/RecentAddCard";
 

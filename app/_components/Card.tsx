@@ -15,4 +15,5 @@ const Card = ({title, children}: Props) => {
   )
 }
 
+
 export default Card

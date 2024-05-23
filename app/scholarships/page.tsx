@@ -9,7 +9,7 @@ const getScholarships = async ({ searchParams }: Props) => {
   try {
     const params = new URLSearchParams(searchParams as Record<string, string>);
     const res = await fetch(
-      `https://interscholar.vercel.app/api/scholarships?${params}`,
+      `http://localhost:3000/api/scholarships?${params}`,
       {
         cache: "no-store",
       },

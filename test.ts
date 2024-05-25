@@ -23,6 +23,8 @@ const scholarshipSchema = {
     "local": false,
     "abroad": false
   };
+
+  
   const internshipSchema = {
     "title": "String",
     "organization": "String",

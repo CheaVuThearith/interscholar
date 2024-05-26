@@ -9,7 +9,7 @@ import CircleCard from "./_components/CircleCard";
 import Card from "./_components/FeatureCard";
 import RecentlyAddedSection from "./_components/RecentlyAddedSection";
 import { Suspense } from "react";
-import LoadingRecentlyAddedSection from "./_components/loadingRecentlyAddedSection";
+import LoadingRecentlyAddedSection from "./_components/LoadingRecentlyAddedSection";
 
 const checkList = [
   "Comprehensive Coverage",

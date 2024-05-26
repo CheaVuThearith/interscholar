@@ -48,8 +48,10 @@ const page = async ({ searchParams, params }: Props) => {
       : searchParams["itemsPerPage"] ?? "10",
   );
   const amountOfPages = (await Scholarship.countDocuments()) / itemsPerPage;
-  const { info }: { info: scholarshipType[] } =
-    await getInfo({ searchParams, params });
+  const { info }: { info: scholarshipType[] } = await getInfo({
+    searchParams,
+    params,
+  });
   return (
     <>
       <div

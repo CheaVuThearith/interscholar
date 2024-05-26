@@ -5,9 +5,11 @@ import {
   CheckCircleIcon,
   InformationCircleIcon,
 } from "@heroicons/react/16/solid";
-import Card from "./_components/FeatureCard";
 import CircleCard from "./_components/CircleCard";
-import RecentAddCard from "./_components/RecentAddCard";
+import Card from "./_components/FeatureCard";
+import RecentlyAddedSection from "./_components/RecentlyAddedSection";
+import { Suspense } from "react";
+import LoadingRecentlyAddedSection from "./_components/loadingRecentlyAddedSection";
 
 const checkList = [
   "Comprehensive Coverage",
@@ -19,7 +21,7 @@ interface teamType {
   name: string;
   role: string;
   description: string;
-  picture: string;
+  image: string;
 }
 
 const team: teamType[] = [
@@ -28,21 +30,21 @@ const team: teamType[] = [
     role: "Developer",
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi totam dolores sunt consequuntur quidem veritatis sapiente eligendi dicta. Aspernatur, harum!",
-    picture: "team/cheavuthearith.webp",
+    image: "team/cheavuthearith.webp",
   },
   {
     name: "Song Uylong",
     role: "UX/UI Design",
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi totam dolores sunt consequuntur quidem veritatis sapiente eligendi dicta. Aspernatur, harum!",
-    picture: "team/songuylong.webp",
+    image: "team/songuylong.webp",
   },
   {
     name: "Chan Panha",
     role: "Researcher",
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi totam dolores sunt consequuntur quidem veritatis sapiente eligendi dicta. Aspernatur, harum!",
-    picture: "team/chanpanha.webp",
+    image: "team/chanpanha.webp",
   },
 ];
 
@@ -81,7 +83,7 @@ export default function Home() {
               ))}
             </ul>
             <a
-              href="/scholarships"
+              href="/opportunities"
               className="group flex h-12 w-52 items-center justify-center gap-x-2 rounded-3xl bg-[#99bc85] font-semibold"
             >
               Explore now
@@ -89,7 +91,7 @@ export default function Home() {
             </a>
           </div>
           <img
-            src="book.gif"
+            src="/book.gif"
             className="hidden h-auto w-[720px] shrink-0 grow object-cover mix-blend-screen sm:block"
           ></img>
         </div>
@@ -126,7 +128,7 @@ gap-y-20 xl:items-stretch"
             <CircleCard
               className="relative right-2 top-6 scale-[250%]"
               name={team[0].name}
-              picture={team[0].picture}
+              image={team[0].image}
               role={team[0].role}
               description={team[0].description}
             />
@@ -135,7 +137,7 @@ gap-y-20 xl:items-stretch"
               className="relative right-14 scale-[350%]"
               style={{ objectPosition: "0% 40%" }}
               name={team[1].name}
-              picture={team[1].picture}
+              image={team[1].image}
               role={team[1].role}
               description={team[1].description}
             />
@@ -144,7 +146,7 @@ gap-y-20 xl:items-stretch"
               style={{ objectPosition: "50% 30%" }}
               className="relative right-2 scale-110"
               name={team[2].name}
-              picture={team[2].picture}
+              image={team[2].image}
               role={team[2].role}
               description={team[2].description}
             />
@@ -152,20 +154,9 @@ gap-y-20 xl:items-stretch"
         </div>
       </section>
       {/* Recently added */}
-      <section className="px-6 py-20">
-        <div
-          className="mx-auto flex max-w-screen-2xl flex-col items-center 
-gap-y-20 xl:items-stretch"
-        >
-          <h1 className="text-6xl font-bold ">Recently Added</h1>
-          <div className="flex flex-wrap items-center justify-center gap-12">
-            <RecentAddCard />
-            <RecentAddCard />
-            <RecentAddCard />
-            <RecentAddCard />
-          </div>
-        </div>
-      </section>
+      <Suspense fallback={<LoadingRecentlyAddedSection />}>
+        <RecentlyAddedSection />
+      </Suspense>
       {/* Contact */}
       <section className="bg-[#e1f0da] px-6 py-20">
         <div

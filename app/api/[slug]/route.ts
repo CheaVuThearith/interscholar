@@ -35,7 +35,7 @@ export async function GET(req: NextRequest, context: any) {
     const itemsPerPage = parseInt(searchParams.get("itemsPerPage") ?? "10");
     const info = await infoTypeHashMap[
       params.slug as keyof typeof infoTypeHashMap
-    ].find({}, {}, { limit: itemsPerPage, skip: (page - 1) * itemsPerPage });
+    ].find({}, {}, { limit: itemsPerPage, skip: (page - 1) * itemsPerPage }).sort({ _id: -1 });
     return NextResponse.json({ info }, { status: 200 });
   } catch (error) {
     return NextResponse.json({ message: "Error" }, { status: 500 });

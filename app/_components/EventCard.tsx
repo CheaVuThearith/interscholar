@@ -1,12 +1,7 @@
-import {
-  ArrowRightIcon,
-  CalendarDaysIcon,
-  CalendarIcon,
-  MapPinIcon,
-} from "@heroicons/react/16/solid";
-import React from "react";
+import { CalendarDaysIcon, MapPinIcon } from "@heroicons/react/16/solid";
 
 type Props = {
+  image?: string;
   title?: string;
   organization?: string;
   deadline?: Date;
@@ -15,34 +10,61 @@ type Props = {
 };
 
 const EventCard = ({
-  title = "Techno Innovation Challenge Cambodia Season 7",
-  deadline = new Date(),
-  organization = "Techno",
-  location = "Phnom Penh",
+  image,
+  title,
+  deadline,
+  organization,
+  location,
   className,
 }: Props) => {
-  deadline = new Date(deadline)
+  if (deadline) {
+    deadline = new Date(deadline);
+  }
+
   return (
-      <div className={`${className} flex flex-col items-start justify-center gap-y-3`}>
-        <div className="aspect-square w-72 lg:w-80 rounded-xl bg-black"></div>
-        <div className="flex w-72 flex-col items-start gap-y-1">
-          <p className="text-xl font-semibold text-[#85a6bc]">{title}</p>
-          <p className="text-[#515050]">{organization}</p>
-        </div>
-        <div className="flex items-center w-full justify-between">
-          <div className="flex flex-col gap-y-1 w-1/2">
-            <p className="flex items-center gap-x-1">
-              <CalendarDaysIcon className="size-7 shrink-0" /> {`${deadline.getDate()}/${deadline.getMonth()}/${deadline.getFullYear()}`}
-            </p>
-            <p className="flex items-center gap-x-1">
-              <MapPinIcon className="size-7" /> {location}
-            </p>
-          </div>
-          <button className="mt-2 flex items-center justify-center gap-x-2 rounded-xl bg-[#85a6bc] px-3 py-2 text-center font-semibold text-white shadow-black hover:shadow-md">
-            Explore
-          </button>
+    <div
+      className={`flex h-full max-w-[368px] transform cursor-pointer flex-col items-start justify-between gap-y-3 self-start justify-self-center rounded-xl p-0 transition-all duration-200 lg:p-6 lg:hover:scale-105 lg:hover:border lg:hover:shadow-xl`}
+    >
+      <div className="flex flex-col gap-y-3">
+        <img className={`object-cover aspect-square ${!title && "loading"} w-72 rounded-xl lg:w-80`} src={image} alt="" /> 
+        <div className="flex w-72 flex-col items-start gap-y-1 lg:w-80">
+          <p
+            className={`w-full text-xl font-semibold ${!title && "loading h-7"} rounded-md text-[#85a6bc]`}
+          >
+            {title}
+          </p>
+          <p
+            className={`w-full text-[#515050] ${!title && "loading h-7"} rounded-md`}
+          >
+            {organization}
+          </p>
         </div>
       </div>
+      <div className="flex w-full flex-col justify-center gap-y-3">
+        <div
+          className={`${!title && "loading h-14"} flex w-full items-center justify-between rounded-lg`}
+        >
+          <div className="flex w-1/2 flex-col gap-y-1">
+            <p className={`flex w-full items-center gap-x-1`}>
+              {title && <CalendarDaysIcon className="size-7 shrink-0" />}{" "}
+              <span className={` w-full rounded-md`}>
+                {deadline &&
+                  `${deadline.getDate()}/${deadline.getMonth()}/${deadline.getFullYear()}`}
+              </span>
+            </p>
+            <p className={`flex  w-full items-center gap-x-1`}>
+              {title && <MapPinIcon className="size-7 shrink-0" />}{" "}
+              <span className={` w-full rounded-md`}>{location}</span>
+            </p>
+          </div>
+          {title && (
+            <button className="mt-2 flex items-center justify-center gap-x-2 rounded-xl bg-[#85a6bc] px-3 py-2 text-center font-semibold text-white shadow-black hover:shadow-md">
+              Explore
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
   );
 };
 

@@ -1,6 +1,6 @@
 import { Scholarship } from "@/lib/mongo";
-import EventCard from "../_components/EventCard";
-import PaginationControls from "../_components/PaginationControls";
+import EventCard from "../app/_components/EventCard";
+import PaginationControls from "../app/_components/PaginationControls";
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -9,7 +9,7 @@ const getScholarships = async ({ searchParams }: Props) => {
   try {
     const params = new URLSearchParams(searchParams as Record<string, string>);
     const res = await fetch(
-      `https://interscholar.vercel.app/api/scholarships?${params}`,
+      `${process.env.FETCH_URL}/api/scholarships?${params}`,
       {
         cache: "no-store",
       },

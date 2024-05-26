@@ -17,12 +17,12 @@ export async function GET(req: NextRequest) {
     const searchParams = req.nextUrl.searchParams;
     const page = parseInt(searchParams.get("page") ?? "1");
     const itemsPerPage = parseInt(searchParams.get("itemsPerPage") ?? "10");
-    const extraCurriculars = await ExtraCurricular.find(
+    const info = await ExtraCurricular.find(
       {},
       {},
       { limit: itemsPerPage, skip: (page - 1) * itemsPerPage },
     );
-    return NextResponse.json({ extraCurriculars }, { status: 200 });
+    return NextResponse.json({ info }, { status: 200 });
   } catch (error) {
     return NextResponse.json({ message: "Error", error }, { status: 500 });
   }

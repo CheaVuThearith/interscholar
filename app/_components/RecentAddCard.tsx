@@ -1,26 +1,44 @@
 import { ArrowRightIcon } from "@heroicons/react/16/solid";
-import React from "react";
+import React, { Suspense } from "react";
 
 type Props = {
-  name?: string;
+  image?: string;
+  title?: string;
   description?: string;
-  role?: string;
+  deadline?: Date;
 };
 
-const RecentAddCard = ({
-  name = "Techno Innovation Challenge Cambodia Season 7",
-  description = "Techno Innovation Challenge Cambodia is a competition program which students from different skills team up, design, build and pitch their innovative STEM-based solutions for solving a real world problem within 4 weeks duration.", role = "10th March 2024",
-}: Props) => {
+const RecentAddCard = ({ image, title, description, deadline }: Props) => {
+  if (deadline) {
+    deadline = new Date(deadline);
+  }
   return (
-    <div className="flex max-w-80 flex-col items-start justify-center gap-y-3">
-      <div className="size-80 rounded-xl bg-black"></div>
-      <div className="flex flex-col items-start gap-y-1">
-        <p className="text-3xl font-semibold">{name}</p>
-        <p className="text-[#515050]">{role}</p>
+    <div className="max-w-80 h-[700px] flex flex-col justify-between">
+      <div className="flex flex-col items-start justify-center gap-y-3">
+        {title ? (
+          <img
+            src={image}
+            className="size-80 rounded-xl border-0 object-cover"
+          ></img>
+        ) : (
+          <div
+            className={`${!title && "loading"} size-80 rounded-xl border-0 object-cover`}
+          ></div>
+        )}
+        <div
+          className={`${!title && "loading h-16 w-full"} flex  flex-col items-start gap-y-1 rounded-xl`}
+        >
+          <p className="text-3xl font-semibold">{title}</p>
+          <p className="text-[#515050]">
+            {deadline &&
+              `${deadline.getDate()}/${deadline.getMonth()}/${deadline.getFullYear()}`}
+          </p>
+        </div>
+        <p className="text-start text-[#515050]">{description}</p>
       </div>
-      <p className="text-start text-[#515050]">{description}</p>
-      <button className="group mt-2 flex size-24 hover:shadow-md shadow-black rounded-full items-center justify-center gap-x-2 bg-[#333333] font-semibold">
-        <ArrowRightIcon className="size-12 fill-white transition-all group-hover:scale-125 duration-200" />
+
+      <button className="group mt-2 flex size-24 items-center justify-center gap-x-2 rounded-full bg-[#333333] font-semibold shadow-black hover:shadow-md">
+        <ArrowRightIcon className="size-12 fill-white transition-all duration-200 group-hover:scale-125" />
       </button>
     </div>
   );

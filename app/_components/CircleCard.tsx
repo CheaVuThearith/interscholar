@@ -5,7 +5,7 @@ type Props = {
   name?: string;
   description?: string;
   role?: string;
-  picture?: string;
+  image?: string;
   className?:string
   style?:CSSProperties
 };
@@ -14,14 +14,14 @@ const CircleCard = ({
   name = "Name",
   description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, molestias.",
   role = "Role",
-  picture,
+  image,
   style,
   className,
 }: Props) => {
   return (
     <div className="flex max-w-96 flex-col items-center justify-center gap-y-3">
       <div className="size-60 rounded-full overflow-hidden">
-        <img className={`${className} size-60 rounded-full object-cover`} style={style} src={picture} alt={name} />
+        <img className={`${className} size-60 rounded-full object-cover`} style={style} src={image} alt={name} />
       </div>
       <div className="flex flex-col items-center gap-y-1">
         <p className="text-3xl font-semibold">{name}</p>

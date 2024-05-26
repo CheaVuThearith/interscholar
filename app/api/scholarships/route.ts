@@ -17,8 +17,8 @@ export async function GET(req: NextRequest) {
     const searchParams = req.nextUrl.searchParams;
     const page = parseInt(searchParams.get("page") ?? "1");
     const itemsPerPage = parseInt(searchParams.get("itemsPerPage") ?? "10");
-    const scholarships = await Scholarship.find({}, {}, {limit:itemsPerPage, skip:(page-1)*itemsPerPage});
-    return NextResponse.json({ scholarships }, { status: 200 });
+    const info = await Scholarship.find({}, {}, {limit:itemsPerPage, skip:(page-1)*itemsPerPage, });
+    return NextResponse.json({ info }, { status: 200 });
   } catch (error) {
     return NextResponse.json({ message: "Error", error }, { status: 500 });
   }

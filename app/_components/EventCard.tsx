@@ -26,7 +26,14 @@ const EventCard = ({
       className={`flex h-full max-w-[368px] transform cursor-pointer flex-col items-start justify-between gap-y-3 self-start justify-self-center rounded-xl p-0 transition-all duration-200 lg:p-6 lg:hover:scale-105 lg:hover:border lg:hover:shadow-xl`}
     >
       <div className="flex flex-col gap-y-3">
-        <img className={`object-cover aspect-square ${!title && "loading"} w-72 rounded-xl lg:w-80`} src={image} alt="" /> 
+        {title ? (
+          <img
+            src={image}
+            className="size-80 rounded-xl border-0 object-cover"
+          ></img>
+        ) : (
+          <div className="loading size-80 rounded-xl border-0 object-cover"></div>
+        )}{" "}
         <div className="flex w-72 flex-col items-start gap-y-1 lg:w-80">
           <p
             className={`w-full text-xl font-semibold ${!title && "loading h-7"} rounded-md text-[#85a6bc]`}

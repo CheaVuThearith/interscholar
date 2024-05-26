@@ -27,7 +27,7 @@ interface scholarshipType {
 
 const RecentlyAddedSection = async (props: Props) => {
   const scholarships  =
-    await (Scholarship.find({},{} , {limit:4, skip:await (Scholarship.countDocuments())-4, }));
+    await (Scholarship.find({},{} , {limit:4}).sort({"_id":-1}));
   return (
     <section className="px-6 py-20">
       <div

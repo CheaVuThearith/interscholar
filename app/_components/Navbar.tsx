@@ -18,7 +18,7 @@ const Navbar = (props: Props) => {
           </a>
         </div>
 
-        <div className="absolute -z-10 inset-x-0 hidden items-center justify-center gap-x-12 xl:flex">
+        <div className="hidden items-center justify-center gap-x-12 xl:flex">
           {pages.map((page, index) => (
             <Link key={index} className="text-lg" href={`/opportunities/${page.toLowerCase().replace("-", "")}`}>
               {page}

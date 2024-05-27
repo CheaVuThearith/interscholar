@@ -160,7 +160,7 @@ gap-y-20 xl:items-stretch"
       {/* Contact */}
       <section className="bg-[#e1f0da] px-6 py-20">
         <div
-          className="mx-auto flex max-w-screen-2xl flex-col items-center justify-between gap-y-12
+          className="mx-auto overflow-hidden flex max-w-screen-2xl flex-col items-center justify-between gap-y-12
 xl:flex-row xl:items-stretch"
         >
           <div className="flex flex-col gap-y-7 xl:w-[700px]">

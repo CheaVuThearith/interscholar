@@ -29,7 +29,7 @@ const EventCard = ({
   return (
     <a
       href={`${pathname}/${_id}`}
-      className={`flex h-full max-w-[368px] transform cursor-pointer flex-col items-start justify-between gap-y-3 self-start justify-self-center rounded-xl p-0 transition-all duration-200 lg:p-6 lg:hover:scale-105 lg:hover:border lg:hover:shadow-xl`}
+      className={`flex bg-white h-full max-w-[368px] transform cursor-pointer flex-col items-start justify-between gap-y-3 self-start justify-self-center rounded-xl p-0 transition-all duration-200 lg:p-6 lg:hover:scale-105 lg:hover:border shadow-xl`}
     >
       <div className="flex flex-col gap-y-3">
         {title ? (

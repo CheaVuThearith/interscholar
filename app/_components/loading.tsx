@@ -1,11 +1,11 @@
+import EventCard from "@/app/_components/EventCard";
 import React from "react";
-import EventCard from "../_components/EventCard";
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
-const loading = ({ searchParams = {} }: Props) => {
+const Loading = ({ searchParams = {} }: Props) => {
   const itemsPerPage = parseInt(
     Array.isArray(searchParams["itemsPerPage"])
       ? searchParams["itemsPerPage"][0]
@@ -26,4 +26,4 @@ const loading = ({ searchParams = {} }: Props) => {
     </div>
   );
 };
-export default loading;
+export default Loading;

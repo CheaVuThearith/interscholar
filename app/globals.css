@@ -30,14 +30,27 @@
   }
 }
 
+.green_section {
+  background: rgb(225, 240, 218);
+  background: radial-gradient(
+    circle,
+    rgba(225, 240, 218, 1) 0%,
+    rgba(250, 246, 239, 1) 50%,
+    rgba(225, 240, 218, 1) 100%
+  );
+}
+
+.nav_background_on{
+  background: #faf6ef;
+}
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: rgb(225, 240, 218);
+  background: radial-gradient(
+    circle,
+    rgba(225, 240, 218, 1) 0%,
+    rgba(250, 246, 239, 1) 50%,
+    rgba(225, 240, 218, 1) 100%
+  );
 }
 
 @layer utilities {

@@ -1,4 +1,9 @@
-import { Scholarship } from "@/lib/mongo";
+import {
+  Competition,
+  ExtraCurricular,
+  Internship,
+  Scholarship,
+} from "@/lib/mongo";
 import EventCard from "../../_components/EventCard";
 import PaginationControls from "../../_components/PaginationControls";
 
@@ -15,7 +20,7 @@ const getInfo = async ({ searchParams, params }: Props) => {
       `${process.env.FETCH_URL}/api/${params.slug}?${sParams}`,
       {
         cache: "no-store",
-      },
+      }
     );
     return res.json();
   } catch (error) {
@@ -23,6 +28,7 @@ const getInfo = async ({ searchParams, params }: Props) => {
   }
 };
 interface scholarshipType {
+  _id:string
   title: string;
   organization: string;
   deadline: Date;
@@ -41,13 +47,23 @@ interface scholarshipType {
   arts: boolean;
 }
 
+const infoTypeHashMap = {
+  competitions: Competition,
+  extracurriculars: ExtraCurricular,
+  internships: Internship,
+  scholarships: Scholarship,
+};
 const page = async ({ searchParams, params }: Props) => {
   const itemsPerPage = parseInt(
     Array.isArray(searchParams["itemsPerPage"])
       ? searchParams["itemsPerPage"][0]
-      : searchParams["itemsPerPage"] ?? "10",
+      : searchParams["itemsPerPage"] ?? "10"
   );
-  const amountOfPages = (await Scholarship.countDocuments()) / itemsPerPage;
+  const amountOfPages =
+    (await infoTypeHashMap[
+      params.slug as keyof typeof infoTypeHashMap
+    ].countDocuments()) / itemsPerPage;
+
   const { info }: { info: scholarshipType[] } = await getInfo({
     searchParams,
     params,
@@ -62,6 +78,7 @@ const page = async ({ searchParams, params }: Props) => {
       >
         {info.map((entry, index) => (
           <EventCard
+          _id={entry._id}
             key={index}
             title={entry.title}
             deadline={entry.deadline}

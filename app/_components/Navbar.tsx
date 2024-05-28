@@ -44,7 +44,7 @@ const Navbar = (props: Props) => {
         <motion.nav
           onMouseEnter={() => setNavOpen(true)}
           ref={NavbarRef}
-          className={`sticky top-5 z-10 mt-4 flex xl:ml-8 m-auto h-24 items-center justify-center gap-6 overflow-hidden rounded-full ${navOpen ? "p-8 xl:justify-between": "xl:justify-center"} ${colorOn && "bg-[#faf6ef]"} drop-shadow-lg `}
+          className={`sticky top-5 z-10 mt-4 flex xl:ml-8 m-auto h-24 items-center justify-center gap-6 overflow-hidden rounded-full ${navOpen ? "p-8 xl:justify-between": "xl:justify-center"} ${colorOn && "bg-[#faf6f0]"} drop-shadow-lg `}
           animate={
             !navOpen
               ? { width: 96}

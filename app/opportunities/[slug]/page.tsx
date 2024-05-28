@@ -20,7 +20,7 @@ const getInfo = async ({ searchParams, params }: Props) => {
       `${process.env.FETCH_URL}/api/${params.slug}?${sParams}`,
       {
         cache: "no-store",
-      }
+      },
     );
     return res.json();
   } catch (error) {
@@ -28,7 +28,7 @@ const getInfo = async ({ searchParams, params }: Props) => {
   }
 };
 interface scholarshipType {
-  _id:string
+  _id: string;
   title: string;
   organization: string;
   deadline: Date;
@@ -57,7 +57,7 @@ const page = async ({ searchParams, params }: Props) => {
   const itemsPerPage = parseInt(
     Array.isArray(searchParams["itemsPerPage"])
       ? searchParams["itemsPerPage"][0]
-      : searchParams["itemsPerPage"] ?? "10"
+      : searchParams["itemsPerPage"] ?? "9",
   );
   const amountOfPages =
     (await infoTypeHashMap[
@@ -70,15 +70,10 @@ const page = async ({ searchParams, params }: Props) => {
   });
   return (
     <>
-      <div
-        className="grid w-full gap-20 p-3"
-        style={{
-          gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-        }}
-      >
+      <div className="flex w-full flex-wrap place-content-center gap-x-5 gap-y-20 p-3">
         {info.map((entry, index) => (
           <EventCard
-          _id={entry._id}
+            _id={entry._id}
             key={index}
             title={entry.title}
             deadline={entry.deadline}
@@ -88,7 +83,7 @@ const page = async ({ searchParams, params }: Props) => {
         ))}
       </div>
       <PaginationControls
-        className=" mx-auto lg:me-0 lg:ms-auto"
+        className=" mx-auto mt-10 lg:me-10 lg:ms-auto"
         amountOfPages={Math.ceil(amountOfPages)}
       />
     </>

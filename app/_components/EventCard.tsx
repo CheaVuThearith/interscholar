@@ -29,7 +29,7 @@ const EventCard = ({
   return (
     <a
       href={`${pathname}/${_id}`}
-      className={`flex bg-white h-full max-w-[368px] transform cursor-pointer flex-col items-start justify-between gap-y-3 self-start justify-self-center rounded-xl p-0 transition-all duration-200 lg:p-6 lg:hover:scale-105 lg:hover:border shadow-xl`}
+      className={`flex h-full max-w-[368px] transform cursor-pointer flex-col items-start justify-between gap-y-3 self-start justify-self-center rounded-xl bg-white p-0 shadow-xl transition-all duration-200 p-6 lg:hover:scale-105 lg:hover:border`}
     >
       <div className="flex flex-col gap-y-3">
         {title ? (
@@ -40,7 +40,7 @@ const EventCard = ({
         ) : (
           <div className="loading size-80 rounded-xl border-0 object-cover"></div>
         )}
-        <div className="flex w-72 flex-col items-start gap-y-1 lg:w-80">
+        <div className="flex w-80 flex-col items-start gap-y-1">
           <p
             className={`w-full text-xl font-semibold ${!title && "loading h-7"} rounded-md text-[#85a6bc]`}
           >

@@ -74,7 +74,6 @@ export default function Home() {
                 assistance, success is just a step away!
               </p>
             </div>
-
             <ul className="flex flex-col gap-y-2 text-[#515050]">
               {checkList.map((item, index) => (
                 <li className="flex items-center gap-x-2" key={index}>

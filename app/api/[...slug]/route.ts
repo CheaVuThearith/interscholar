@@ -19,7 +19,7 @@ export async function POST(req: NextRequest, context: any) {
     const body = await req.json();
     const infoData = body;
     await infoTypeHashMap[params.slug as keyof typeof infoTypeHashMap].create(
-      infoData
+      infoData,
     );
 
     return NextResponse.json({ message: "Success!" }, { status: 201 });
@@ -33,14 +33,14 @@ export async function GET(
     params: {
       slug: string[];
     };
-  }
+  },
 ) {
   try {
     const { params } = context;
     if (params.slug.length <= 1) {
       const searchParams = req.nextUrl.searchParams;
       const page = parseInt(searchParams.get("page") ?? "1");
-      const itemsPerPage = parseInt(searchParams.get("itemsPerPage") ?? "10");
+      const itemsPerPage = parseInt(searchParams.get("itemsPerPage") ?? "9");
       const info = await infoTypeHashMap[
         params.slug[0] as keyof typeof infoTypeHashMap
       ]
@@ -50,7 +50,7 @@ export async function GET(
           {
             limit: itemsPerPage,
             skip: (page - 1) * itemsPerPage,
-          }
+          },
         )
         .sort({ _id: -1 });
       return NextResponse.json({ info }, { status: 200 });

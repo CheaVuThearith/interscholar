@@ -8,7 +8,7 @@ const PaginationControls = ({ amountOfPages, className }: Props) => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const page = parseInt(searchParams.get("page") ?? "1");
-  const itemsPerPage = parseInt(searchParams.get("itemsPerPage") ?? "10");
+  const itemsPerPage = parseInt(searchParams.get("itemsPerPage") ?? "9");
   const nextPage = () => {
     router.push(
       `?page=${Math.min(page + 1, amountOfPages)}&itemsPerPage=${itemsPerPage}`,
@@ -51,7 +51,7 @@ const PaginationControls = ({ amountOfPages, className }: Props) => {
             >
               1
             </button>,
-            (page < amountOfPages) && (
+            page < amountOfPages && (
               <button
                 key="current"
                 onClick={() => toPage(page > 2 ? page : 2)}

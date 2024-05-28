@@ -9,7 +9,7 @@ const Loading = ({ searchParams = {} }: Props) => {
   const itemsPerPage = parseInt(
     Array.isArray(searchParams["itemsPerPage"])
       ? searchParams["itemsPerPage"][0]
-      : searchParams["itemsPerPage"] ?? "10",
+      : searchParams["itemsPerPage"] ?? "9",
   );
   return (
     <div

@@ -9,15 +9,10 @@ const Loading = ({ searchParams = {} }: Props) => {
   const itemsPerPage = parseInt(
     Array.isArray(searchParams["itemsPerPage"])
       ? searchParams["itemsPerPage"][0]
-      : searchParams["itemsPerPage"] ?? "10",
+      : searchParams["itemsPerPage"] ?? "9",
   );
   return (
-    <div
-      className="grid w-full gap-12 p-3"
-      style={{
-        gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-      }}
-    >
+    <div className="flex w-full flex-wrap place-content-center gap-x-5 gap-y-20 p-3">
       {Array(itemsPerPage)
         .fill("")
         .map((_, index) => (

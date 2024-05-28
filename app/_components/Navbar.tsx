@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { easeInOut, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -41,67 +41,67 @@ const Navbar = (props: Props) => {
   const [colorOn, setColorOn] = useState(false);
   return (
     <>
-        <motion.nav
-          onMouseEnter={() => setNavOpen(true)}
-          ref={NavbarRef}
-          className={`sticky top-5 z-10 mt-4 flex xl:ml-8 m-auto h-24 items-center justify-center gap-6 overflow-hidden rounded-full ${navOpen ? "p-8 xl:justify-between": "xl:justify-center"} ${colorOn && "bg-[#faf6f0]"} drop-shadow-lg `}
-          animate={
-            !navOpen
-              ? { width: 96}
-              : {
-                  width: "97%",
-                }
-          }
-          transition={{
-            default: {duration:.2 },
-          }}
-        >
-          <div className={`flex h-20 items-center justify-center`}>
-            <a
-              href="/"
-              className="flex items-center justify-center gap-x-2 transition-all"
-            >
-              <Image
-                width={60}
-                height={60}
-                src="/interscholarlogo.png"
-                alt="logo"
-              />
-              {navOpen && (
-                <p className="flex items-center justify-center text-xl font-semibold text-[#85bd71]">
-                  InterScholar
-                </p>
-              )}
-            </a>
-          </div>
-          {navOpen && (
-            <>
-              <div className="hidden items-center justify-center gap-x-12 xl:flex">
-                {pages.map((page, index) => {
-                  const href = `/opportunities/${page.toLowerCase().replace("-", "")}`;
-                  return (
-                    <Link
-                      key={index}
-                      onMouseEnter={() => {
-                        router.prefetch(href);
-                      }}
-                      className="text-lg"
-                      href={href}
-                    >
-                      {page}
-                    </Link>
-                  );
-                })}
-              </div>
-              <div className="hidden items-center justify-center gap-x-5 xl:flex">
-                <SearchBar />
-                <button className="hidden rounded-md bg-[#99bc85] px-3 py-2 xl:block">
-                  Login
-                </button>
-              </div>
-            </>
-          )}
-        </motion.nav>
+      <motion.nav
+        onMouseEnter={() => setNavOpen(true)}
+        ref={NavbarRef}
+        className={`sticky top-5 z-10 m-auto mt-4 flex h-24 items-center justify-center gap-6 overflow-hidden rounded-full xl:ml-8 ${navOpen ? "p-8 xl:justify-between" : "xl:justify-center"} ${colorOn && "bg-[#faf6f0]"} drop-shadow-lg `}
+        animate={
+          !navOpen
+            ? { width: 96 }
+            : {
+                width: "97%",
+              }
+        }
+        transition={{
+          default: { duration: .7, ease: easeInOut },
+        }}
+      >
+        <div className={`flex h-20 items-center justify-center`}>
+          <a
+            href="/"
+            className="flex items-center justify-center gap-x-2 transition-all"
+          >
+            <Image
+              width={60}
+              height={60}
+              src="/interscholarlogo.png"
+              alt="logo"
+            />
+            {navOpen && (
+              <p className="flex items-center justify-center text-xl font-semibold text-[#85bd71]">
+                InterScholar
+              </p>
+            )}
+          </a>
+        </div>
+        {navOpen && (
+          <>
+            <div className="hidden items-center justify-center gap-x-12 xl:flex">
+              {pages.map((page, index) => {
+                const href = `/opportunities/${page.toLowerCase().replace("-", "")}`;
+                return (
+                  <Link
+                    key={index}
+                    onMouseEnter={() => {
+                      router.prefetch(href);
+                    }}
+                    className="text-lg"
+                    href={href}
+                  >
+                    {page}
+                  </Link>
+                );
+              })}
+            </div>
+            <div className="hidden items-center justify-center gap-x-5 xl:flex">
+              <SearchBar />
+              <button className="hidden rounded-md bg-[#99bc85] px-3 py-2 xl:block">
+                Login
+              </button>
+            </div>
+          </>
+        )}
+      </motion.nav>
     </>
   );
 };

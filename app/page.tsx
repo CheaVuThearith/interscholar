@@ -52,7 +52,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className=" px-6 py-20">
+      <section className=" px-6 green_section py-20">
         <div className="mx-auto flex max-w-screen-2xl flex-col items-center justify-between gap-y-12 xl:flex-row xl:items-stretch">
           <div className="flex max-w-[700px] flex-col gap-y-7">
             <div className="flex flex-col gap-y-4">
@@ -119,7 +119,7 @@ gap-y-20 xl:items-stretch"
         </div>
       </section>
       {/* Our Team */}
-      <section className=" px-6 py-20">
+      <section className=" px-6 green_section py-20">
         <div className="mx-auto flex max-w-screen-2xl flex-col items-center justify-center gap-y-16">
           <h1 className="text-6xl font-bold ">Our Team</h1>
           <div className="flex w-full flex-wrap justify-around gap-12">
@@ -157,7 +157,7 @@ gap-y-20 xl:items-stretch"
         <RecentlyAddedSection />
       </Suspense>
       {/* Contact */}
-      <section className=" px-6 py-20">
+      <section className=" px-6 green_section py-20">
         <div
           className="mx-auto overflow-hidden flex max-w-screen-2xl flex-col items-center justify-between gap-y-12
 xl:flex-row xl:items-stretch"

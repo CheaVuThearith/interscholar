@@ -29,30 +29,32 @@
     --background-end-rgb: 250, 246, 240;
   }
 }
+body {
+  background: rgb(250, 246, 239);
+  background: linear-gradient(
+    0deg,
+    rgba(225, 240, 218, 1) 50%,
+    rgba(250, 246, 239, 1) 100%
+  );
+}
+
+section {
+  background: rgb(250, 246, 239);
+  background: linear-gradient(
+    0deg,
+    rgba(250, 246, 239, 1) 75%,
+    rgba(225, 240, 218, 1) 100%
+  );
+}
 
 .green_section {
   background: rgb(225, 240, 218);
-  background: radial-gradient(
-    circle,
-    rgba(225, 240, 218, 1) 0%,
-    rgba(250, 246, 239, 1) 50%,
-    rgba(225, 240, 218, 1) 100%
+  background: linear-gradient(
+    0deg,
+    rgba(225, 240, 218, 1) 75%,
+    rgba(250, 246, 239, 1) 100%
   );
 }
-
-.nav_background_on{
-  background: #faf6ef;
-}
-body {
-  background: rgb(225, 240, 218);
-  background: radial-gradient(
-    circle,
-    rgba(225, 240, 218, 1) 0%,
-    rgba(250, 246, 239, 1) 50%,
-    rgba(225, 240, 218, 1) 100%
-  );
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;

@@ -9,7 +9,7 @@ const FilterMenu = ({ filterOptions }: Props) => {
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const [filterOn, setFilterOn] = useState(false);
   return (
-    <div className="flex h-full lg:sticky top-40 lg:w-[300px] w-full shrink-0 grow-0 flex-col items-start justify-start gap-y-10">
+    <div className="flex h-full lg:sticky top-40 lg:w-[300px] w-full shrink-0 grow-0 flex-col items-center justify-start lg:items-start gap-y-10">
       <button
         className={`size-16 rounded-full p-3 transition-all duration-200 ${filterOn && "shadow-xl bg-[#00000020]"} `}
         onClick={() => {

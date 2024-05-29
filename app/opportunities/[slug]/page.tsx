@@ -84,7 +84,7 @@ const page = async ({ searchParams, params }: Props) => {
   ];
   return (
     <>
-      <div className="mx-auto flex-col lg:flex-row gap-y-20 mt-20 flex max-w-screen-2xl items-start justify-around px-8">
+      <div className="mx-auto mt-20 flex max-w-screen-2xl flex-col items-start justify-around gap-y-20 px-8 lg:flex-row">
         {/* filters */}
         <FilterMenu filterOptions={filterOptions} />
         <div className="flex max-w-screen-xl flex-col gap-y-10">

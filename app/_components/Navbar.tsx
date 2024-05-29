@@ -42,7 +42,8 @@ const Navbar = (props: Props) => {
   return (
     <>
       <motion.nav
-        onTap={() => {setNavOpen(true)
+        onTap={() => {
+          setNavOpen(true);
         }}
         onMouseEnter={() => {
           if (window.innerWidth > 1024) {
@@ -50,11 +51,14 @@ const Navbar = (props: Props) => {
           }
         }}
         ref={NavbarRef}
-        className={`sticky top-5 z-10 mt-4 flex h-12 items-center justify-center gap-6 overflow-hidden rounded-full [--for-width:48px] [--ml:16px] lg:[--for-width:96px] lg:[--ml:32px] xl:h-24 ${navOpen ? "p-8 xl:justify-between" : "xl:justify-center"} ${colorOn && "bg-[#faf6f0]"} drop-shadow-lg `}
+        className={`sticky top-5 z-10 mt-4 flex h-12 items-center justify-center gap-6 overflow-hidden rounded-full [--for-width:48px] [--ml:16px] lg:[--for-width:96px] lg:[--ml:32px] lg:h-24 ${navOpen ? "lg:p-8 p-0 lg:justify-between" : "lg:justify-center"} ${colorOn && "bg-[#faf6f0]"} drop-shadow-lg `}
         initial={{ width: "97%", marginLeft: "var(--ml)", marginRight: "auto" }}
         animate={
           !navOpen
-            ? { width: "var(--for-width)", marginLeft: "var(--ml)" }
+            ? {
+                width: "var(--for-width)",
+                marginLeft: "var(--ml)",
+              }
             : {
                 width: "97%",
                 marginLeft: "auto",
@@ -79,7 +83,7 @@ const Navbar = (props: Props) => {
             {navOpen && (
               <a
                 href="/"
-                className="flex items-center justify-center text-xs font-semibold text-[#85bd71] lg:text-xl"
+                className="flex items-center justify-center text-base font-semibold text-[#85bd71] lg:text-xl"
               >
                 InterScholar
               </a>
@@ -88,7 +92,7 @@ const Navbar = (props: Props) => {
         </div>
         {navOpen && (
           <>
-            <div className="hidden items-center justify-center gap-x-12 xl:flex">
+            <div className="hidden items-center justify-center gap-x-12 lg:flex">
               {pages.map((page, index) => {
                 const href = `/opportunities/${page.toLowerCase().replace("-", "")}`;
                 return (
@@ -105,9 +109,9 @@ const Navbar = (props: Props) => {
                 );
               })}
             </div>
-            <div className="hidden items-center justify-center gap-x-5 xl:flex">
+            <div className="hidden items-center justify-center gap-x-5 lg:flex">
               <SearchBar />
-              <button className="hidden rounded-md bg-[#99bc85] px-3 py-2 xl:block">
+              <button className="hidden rounded-md bg-[#99bc85] px-3 py-2 lg:block">
                 Login
               </button>
             </div>

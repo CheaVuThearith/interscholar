@@ -16,14 +16,15 @@ const scholarshipSchema = new Schema({
   local: Boolean,
   abroad: Boolean,
   //level
+  bachelors: Boolean,
   masters: Boolean,
-  phd: Boolean,
-  exchangeProgram: Boolean,
+  phds: Boolean,
+  exchangeprograms: Boolean,
   //major
-  engineering: Boolean,
-  science: Boolean,
-  socialSciences: Boolean,
-  arts: Boolean,
+  facultyofengineering: Boolean,
+  facultyofscience: Boolean,
+  facultyofsocialsciences: Boolean,
+  facultyofarts: Boolean,
 });
 const competitionSchema = new Schema({
   title: String,

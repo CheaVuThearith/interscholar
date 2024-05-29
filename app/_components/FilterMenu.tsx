@@ -1,16 +1,27 @@
 "use client";
 import { AdjustmentsHorizontalIcon } from "@heroicons/react/16/solid";
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 type Props = {
   filterOptions: string[];
 };
 const FilterMenu = ({ filterOptions }: Props) => {
-  const router = useRouter()
-  const searchParams = useSearchParams();
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const [filterOn, setFilterOn] = useState(false);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const filterList = searchParams.get("filterList") ?? [];
+  const page = searchParams.get("page") ?? "1";
+  const itemsPerPage = searchParams.get("itemsPerPage") ?? "9";
+  useEffect(() => {
+    const params = new URLSearchParams();
+    params.set("filterList", activeFilters.join(","));
+    params.set("page", page);
+    params.set("itemsPerPage", itemsPerPage);
+    router.push(`?${params.toString()}`);
+  }, [activeFilters, router, itemsPerPage, page]);
+
   return (
     <div className="top-40 flex h-full w-full shrink-0 grow-0 flex-col items-center justify-start gap-y-10 lg:sticky lg:w-[300px] lg:items-start">
       <button
@@ -29,12 +40,11 @@ const FilterMenu = ({ filterOptions }: Props) => {
               <li
                 key={index}
                 onClick={() => {
-                  console.log(activeFilters);
                   if (!activeFilters.includes(filterId)) {
                     setActiveFilters((a) => [...a, filterId]);
                   } else {
                     setActiveFilters(() =>
-                      activeFilters.filter((f) => f !== filterId)
+                      activeFilters.filter((f) => f !== filterId),
                     );
                   }
                 }}

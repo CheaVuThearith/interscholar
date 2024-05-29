@@ -44,11 +44,11 @@ const Navbar = (props: Props) => {
       <motion.nav
         onMouseEnter={() => setNavOpen(true)}
         ref={NavbarRef}
-        className={`sticky top-5 z-10 mt-4 flex h-24 items-center justify-center gap-6 overflow-hidden rounded-full ml-8 ${navOpen ? "p-8 xl:justify-between" : "xl:justify-center"} ${colorOn && "bg-[#faf6f0]"} drop-shadow-lg `}
+        className={`sticky top-5 z-10 ml-8 mt-4 flex h-12 xl:h-24 items-center justify-center gap-6 overflow-hidden rounded-full [--for-width:48px] lg:[--for-width:96px] ${navOpen ? "p-8 xl:justify-between" : "xl:justify-center"} ${colorOn && "bg-[#faf6f0]"} drop-shadow-lg `}
         initial={{ width: "97%" }}
         animate={
           !navOpen
-            ? { width: 96 }
+            ? { width: "var(--for-width)" }
             : {
                 width: "97%",
               }
@@ -57,19 +57,18 @@ const Navbar = (props: Props) => {
           default: { duration: 0.7, ease: easeInOut },
         }}
       >
-        <div className={`flex h-20 items-center justify-center`}>
+        <div className={`flex h-10 lg:h-20 items-center justify-center`}>
           <a
             href="/"
             className="flex items-center justify-center gap-x-2 transition-all"
           >
-            <Image
-              width={60}
-              height={60}
+            <img
+            className="[--for-width:30px] size-8 lg:size-16 lg:[--for-width:60px]"
               src="/interscholarlogo.png"
               alt="logo"
             />
             {navOpen && (
-              <p className="flex items-center justify-center text-xl font-semibold text-[#85bd71]">
+              <p className="flex items-center justify-center  text-lg lg:text-xl font-semibold text-[#85bd71]">
                 InterScholar
               </p>
             )}

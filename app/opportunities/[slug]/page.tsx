@@ -6,6 +6,7 @@ import {
 } from "@/lib/mongo";
 import EventCard from "../../_components/EventCard";
 import PaginationControls from "../../_components/PaginationControls";
+import FilterMenu from "@/app/_components/filterMenu";
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -20,7 +21,7 @@ const getInfo = async ({ searchParams, params }: Props) => {
       `${process.env.FETCH_URL}/api/${params.slug}?${sParams}`,
       {
         cache: "no-store",
-      },
+      }
     );
     return res.json();
   } catch (error) {
@@ -57,7 +58,7 @@ const page = async ({ searchParams, params }: Props) => {
   const itemsPerPage = parseInt(
     Array.isArray(searchParams["itemsPerPage"])
       ? searchParams["itemsPerPage"][0]
-      : searchParams["itemsPerPage"] ?? "9",
+      : searchParams["itemsPerPage"] ?? "9"
   );
   const amountOfPages =
     (await infoTypeHashMap[
@@ -68,24 +69,43 @@ const page = async ({ searchParams, params }: Props) => {
     searchParams,
     params,
   });
+
+  const filterOptions = [
+    "Local",
+    "Abroad",
+    "Bachelors",
+    "Masters",
+    "PhDs",
+    "Exchange-Programs",
+    "Faculty of Engineering",
+    "Faculty of Arts",
+    "Faculty of Science",
+    "Faculty of Social Sciences",
+  ];
   return (
     <>
-      <div className="flex w-full flex-wrap place-content-center gap-x-5 gap-y-20 p-3">
-        {info.map((entry, index) => (
-          <EventCard
-            _id={entry._id}
-            key={index}
-            title={entry.title}
-            deadline={entry.deadline}
-            location={entry.location}
-            organization={entry.organization}
+      <div className="mx-auto flex-col lg:flex-row gap-y-20 mt-20 flex max-w-screen-2xl items-start justify-around px-8">
+        {/* filters */}
+        <FilterMenu filterOptions={filterOptions} />
+        <div className="flex max-w-screen-xl flex-col gap-y-10">
+          <div className="flex w-full flex-wrap place-content-center gap-x-5 gap-y-20">
+            {info.map((entry, index) => (
+              <EventCard
+                _id={entry._id}
+                key={index}
+                title={entry.title}
+                deadline={entry.deadline}
+                location={entry.location}
+                organization={entry.organization}
+              />
+            ))}
+          </div>
+          <PaginationControls
+            className=" mx-auto lg:me-10 lg:ms-auto"
+            amountOfPages={Math.ceil(amountOfPages)}
           />
-        ))}
+        </div>
       </div>
-      <PaginationControls
-        className=" mx-auto mt-10 lg:me-10 lg:ms-auto"
-        amountOfPages={Math.ceil(amountOfPages)}
-      />
     </>
   );
 };

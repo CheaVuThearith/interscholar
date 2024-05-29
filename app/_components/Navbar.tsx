@@ -44,31 +44,35 @@ const Navbar = (props: Props) => {
       <motion.nav
         onMouseEnter={() => setNavOpen(true)}
         ref={NavbarRef}
-        className={`sticky top-5 z-10 ml-8 mt-4 flex h-12 xl:h-24 items-center justify-center gap-6 overflow-hidden rounded-full [--for-width:48px] lg:[--for-width:96px] ${navOpen ? "p-8 xl:justify-between" : "xl:justify-center"} ${colorOn && "bg-[#faf6f0]"} drop-shadow-lg `}
-        initial={{ width: "97%" }}
+        className={`[--ml:16px] sticky top-5 z-10 mt-4 flex h-12 items-center justify-center gap-6 overflow-hidden rounded-full [--for-width:48px] lg:[--for-width:96px] lg:[--ml:32px] xl:h-24 ${navOpen ? "p-8 xl:justify-between" : "xl:justify-center"} ${colorOn && "bg-[#faf6f0]"} drop-shadow-lg `}
+        initial={{ width: "97%", marginLeft: "var(--ml)", marginRight: "auto" }}
         animate={
           !navOpen
-            ? { width: "var(--for-width)" }
+            ? { width: "var(--for-width)", marginLeft: "var(--ml)" }
             : {
                 width: "97%",
+                marginLeft: "auto",
+                marginRight: "auto",
               }
         }
         transition={{
           default: { duration: 0.7, ease: easeInOut },
+          marginLeft: !navOpen ? { delay: 0.2 } : { delay: 0.8 },
+          marginRight: !navOpen ? { delay: 0.2 } : { delay: 0.8 },
         }}
       >
-        <div className={`flex h-10 lg:h-20 items-center justify-center`}>
+        <div className={`flex h-10 items-center justify-center lg:h-20`}>
           <a
             href="/"
             className="flex items-center justify-center gap-x-2 transition-all"
           >
             <img
-            className="[--for-width:30px] size-8 lg:size-16 lg:[--for-width:60px]"
+              className="size-8 lg:size-16"
               src="/interscholarlogo.png"
               alt="logo"
             />
             {navOpen && (
-              <p className="flex items-center justify-center  text-lg lg:text-xl font-semibold text-[#85bd71]">
+              <p className="flex items-center justify-center  text-lg font-semibold text-[#85bd71] lg:text-xl">
                 InterScholar
               </p>
             )}

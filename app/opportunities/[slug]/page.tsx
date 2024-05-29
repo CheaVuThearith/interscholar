@@ -6,7 +6,7 @@ import {
 } from "@/lib/mongo";
 import EventCard from "../../_components/EventCard";
 import PaginationControls from "../../_components/PaginationControls";
-import FilterMenu from "@/app/_components/filterMenu";
+import FilterMenu from "@/app/_components/FilterMenu";
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined };

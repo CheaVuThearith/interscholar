@@ -12,7 +12,7 @@ const Loading = ({ searchParams = {} }: Props) => {
       : searchParams["itemsPerPage"] ?? "9"
   );
   return (
-    <div className="mx-auto mt-20 flex max-w-screen-2xl flex-col items-start justify-around gap-y-20 px-8 lg:flex-row">
+    <div className="mx-auto mt-20 flex max-w-screen-2xl flex-col items-start justify-around gap-y-20 px-4 lg:px-8 lg:flex-row">
       <div className="top-40 flex h-full w-full shrink-0 grow-0 flex-col items-center justify-start gap-y-10 lg:sticky lg:w-[300px] lg:items-start">
         <button
           className={`loading "bg-[#00000020] size-16 rounded-full p-3 transition-all duration-200`}

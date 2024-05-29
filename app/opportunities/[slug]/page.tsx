@@ -7,6 +7,7 @@ import {
 import EventCard from "../../_components/EventCard";
 import PaginationControls from "../../_components/PaginationControls";
 import FilterMenu from "@/app/_components/FilterMenu";
+import { useState } from "react";
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -84,7 +85,7 @@ const page = async ({ searchParams, params }: Props) => {
   ];
   return (
     <>
-      <div className="mx-auto mt-20 flex max-w-screen-2xl flex-col items-start justify-around gap-y-20 lg:px-8 px-4 lg:flex-row">
+      <div className="mx-auto min-h-[150vh] mt-20 flex max-w-screen-2xl flex-col items-start justify-around gap-y-20 lg:px-8 px-4 lg:flex-row">
         {/* filters */}
         <FilterMenu filterOptions={filterOptions} />
         <div className="flex max-w-screen-xl flex-col gap-y-10">

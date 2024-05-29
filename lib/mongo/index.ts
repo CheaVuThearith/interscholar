@@ -1,4 +1,4 @@
-import mongoose, { Schema, mongo } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const mongodbUri = process.env.MONGODB_URI;
 if (mongodbUri) {

@@ -10,11 +10,9 @@ type Props = {
 const getInfo = async (params: { moreInfo: string; slug: string }) => {
   try {
     const fetchLink = `${process.env.FETCH_URL}/api/${params.slug}/${params.moreInfo}`;
-    const res = await fetch(fetchLink 
-         ,{
-        cache: "no-store",
-      }
-    );
+    const res = await fetch(fetchLink, {
+      cache: "no-store",
+    });
     return res.json();
   } catch (error) {
     console.log(params);

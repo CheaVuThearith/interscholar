@@ -18,6 +18,8 @@ const Navbar = (props: Props) => {
   ];
 
   const NavbarRef = useRef<HTMLDivElement>(null);
+  const [navOpen, setNavOpen] = useState(true);
+  const [colorOn, setColorOn] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,16 +37,15 @@ const Navbar = (props: Props) => {
     return () => {
       window.addEventListener("scroll", handleScroll);
     };
-  }, [NavbarRef]);
+  }, [NavbarRef, navOpen]);
 
-  const [navOpen, setNavOpen] = useState(true);
-  const [colorOn, setColorOn] = useState(false);
   return (
     <>
       <motion.nav
         onMouseEnter={() => setNavOpen(true)}
         ref={NavbarRef}
         className={`sticky top-5 z-10 m-auto mt-4 flex h-24 items-center justify-center gap-6 overflow-hidden rounded-full xl:ml-8 ${navOpen ? "p-8 xl:justify-between" : "xl:justify-center"} ${colorOn && "bg-[#faf6f0]"} drop-shadow-lg `}
+        initial={{width:"97%"}}
         animate={
           !navOpen
             ? { width: 96 }
@@ -53,7 +54,7 @@ const Navbar = (props: Props) => {
               }
         }
         transition={{
-          default: { duration: .7, ease: easeInOut },
+          default: { duration: 0.7, ease: easeInOut },
         }}
       >
         <div className={`flex h-20 items-center justify-center`}>

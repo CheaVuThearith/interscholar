@@ -42,9 +42,10 @@ const Navbar = (props: Props) => {
   return (
     <>
       <motion.nav
+        onTap={() => setNavOpen(true)}
         onMouseEnter={() => setNavOpen(true)}
         ref={NavbarRef}
-        className={`[--ml:16px] sticky top-5 z-10 mt-4 flex h-12 items-center justify-center gap-6 overflow-hidden rounded-full [--for-width:48px] lg:[--for-width:96px] lg:[--ml:32px] xl:h-24 ${navOpen ? "p-8 xl:justify-between" : "xl:justify-center"} ${colorOn && "bg-[#faf6f0]"} drop-shadow-lg `}
+        className={`sticky top-5 z-10 mt-4 flex h-12 items-center justify-center gap-6 overflow-hidden rounded-full [--for-width:48px] [--ml:16px] lg:[--for-width:96px] lg:[--ml:32px] xl:h-24 ${navOpen ? "p-8 xl:justify-between" : "xl:justify-center"} ${colorOn && "bg-[#faf6f0]"} drop-shadow-lg `}
         initial={{ width: "97%", marginLeft: "var(--ml)", marginRight: "auto" }}
         animate={
           !navOpen
@@ -64,7 +65,7 @@ const Navbar = (props: Props) => {
         <div className={`flex h-10 items-center justify-center lg:h-20`}>
           <a
             href="/"
-            className="flex items-center justify-center gap-x-2 transition-all"
+            className={` ${!navOpen && "pointer-events-none"} flex items-center justify-center gap-x-2 transition-all`}
           >
             <img
               className="size-8 lg:size-16"

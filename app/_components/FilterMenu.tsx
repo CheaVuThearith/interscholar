@@ -11,8 +11,7 @@ const FilterMenu = ({ filterOptions }: Props) => {
   const [filterOn, setFilterOn] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
-  const filterList = searchParams.get("filterList") ?? [];
-  const page = searchParams.get("page") ?? "1";
+  const page = "1";
   const itemsPerPage = searchParams.get("itemsPerPage") ?? "9";
   useEffect(() => {
     const params = new URLSearchParams();

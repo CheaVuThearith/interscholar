@@ -43,7 +43,6 @@ const Navbar = (props: Props) => {
     <>
       <motion.nav
         onTap={() => {setNavOpen(true)
-          console.log(navOpen)
         }}
         onMouseEnter={() => {
           if (window.innerWidth > 1024) {
@@ -80,7 +79,7 @@ const Navbar = (props: Props) => {
             {navOpen && (
               <a
                 href="/"
-                className="flex items-center justify-center text-base font-semibold text-[#85bd71] lg:text-xl"
+                className="flex items-center justify-center text-xs font-semibold text-[#85bd71] lg:text-xl"
               >
                 InterScholar
               </a>

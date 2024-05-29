@@ -42,8 +42,14 @@ const Navbar = (props: Props) => {
   return (
     <>
       <motion.nav
-        onTap={() => setNavOpen(true)}
-        onMouseEnter={() => setNavOpen(true)}
+        onTap={() => {setNavOpen(true)
+          console.log(navOpen)
+        }}
+        onMouseEnter={() => {
+          if (window.innerWidth > 1024) {
+            setNavOpen(true);
+          }
+        }}
         ref={NavbarRef}
         className={`sticky top-5 z-10 mt-4 flex h-12 items-center justify-center gap-6 overflow-hidden rounded-full [--for-width:48px] [--ml:16px] lg:[--for-width:96px] lg:[--ml:32px] xl:h-24 ${navOpen ? "p-8 xl:justify-between" : "xl:justify-center"} ${colorOn && "bg-[#faf6f0]"} drop-shadow-lg `}
         initial={{ width: "97%", marginLeft: "var(--ml)", marginRight: "auto" }}
@@ -63,9 +69,8 @@ const Navbar = (props: Props) => {
         }}
       >
         <div className={`flex h-10 items-center justify-center lg:h-20`}>
-          <a
-            href="/"
-            className={` ${!navOpen && "pointer-events-none"} flex items-center justify-center gap-x-2 transition-all`}
+          <div
+            className={` flex items-center justify-center gap-x-2 transition-all`}
           >
             <img
               className="size-8 lg:size-16"
@@ -73,11 +78,14 @@ const Navbar = (props: Props) => {
               alt="logo"
             />
             {navOpen && (
-              <p className="flex items-center justify-center  text-lg font-semibold text-[#85bd71] lg:text-xl">
+              <a
+                href="/"
+                className="flex items-center justify-center text-base font-semibold text-[#85bd71] lg:text-xl"
+              >
                 InterScholar
-              </p>
+              </a>
             )}
-          </a>
+          </div>
         </div>
         {navOpen && (
           <>

@@ -1,11 +1,14 @@
 "use client";
 import { AdjustmentsHorizontalIcon } from "@heroicons/react/16/solid";
+import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 
 type Props = {
   filterOptions: string[];
 };
 const FilterMenu = ({ filterOptions }: Props) => {
+  const router = useRouter()
+  const searchParams = useSearchParams();
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const [filterOn, setFilterOn] = useState(false);
   return (
@@ -19,24 +22,28 @@ const FilterMenu = ({ filterOptions }: Props) => {
         <AdjustmentsHorizontalIcon />
       </button>
       {filterOn && (
-        <ul className="flex w-full flex-row gap-y-1 overflow-x-scroll lg:w-auto lg:flex-col">
-          {filterOptions.map((filter, index) => (
-            <li
-              onClick={() => {
-                if (!activeFilters.includes(filter)) {
-                  setActiveFilters((a) => [...a, filter]);
-                } else {
-                  setActiveFilters(() =>
-                    activeFilters.filter((f) => f !== filter)
-                  );
-                }
-              }}
-              className="cursor-pointer rounded-xl px-4 py-2 transition-all duration-200 hover:bg-[#00000023]"
-              key={index}
-            >
-              {filter}
-            </li>
-          ))}
+        <ul className="relative flex w-full flex-row gap-x-3 gap-y-1 overflow-x-scroll lg:w-auto lg:flex-col">
+          {filterOptions.map((filter, index) => {
+            const filterId = filter.replaceAll(" ", "").toLowerCase();
+            return (
+              <li
+                key={index}
+                onClick={() => {
+                  console.log(activeFilters);
+                  if (!activeFilters.includes(filterId)) {
+                    setActiveFilters((a) => [...a, filterId]);
+                  } else {
+                    setActiveFilters(() =>
+                      activeFilters.filter((f) => f !== filterId)
+                    );
+                  }
+                }}
+                className={`${activeFilters.includes(filterId) && "bg-[#00000020]"}  min-w-max cursor-pointer rounded-xl px-4 py-2 transition-all duration-200 hover:bg-[#00000023] active:scale-105`}
+              >
+                {filter}
+              </li>
+            );
+          })}
         </ul>
       )}
     </div>

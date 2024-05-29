@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 @keyframes loading {
-  from {
+  fro
+  m {
     background-position-x: 100%;
   }
   to {

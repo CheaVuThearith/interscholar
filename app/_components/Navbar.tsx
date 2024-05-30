@@ -51,8 +51,8 @@ const Navbar = (props: Props) => {
           }
         }}
         ref={NavbarRef}
-        className={`sticky top-5 z-10 mt-4 flex h-12 items-center justify-center gap-6 overflow-hidden rounded-full [--for-width:48px] [--ml:16px] lg:[--for-width:96px] lg:[--ml:32px] lg:h-24 ${navOpen ? "lg:p-8 p-0 lg:justify-between" : "lg:justify-center"} ${colorOn && "bg-[#faf6f0]"} drop-shadow-lg `}
-        initial={{ width: "97%", marginLeft: "var(--ml)", marginRight: "auto" }}
+        className={`sticky top-5 z-10 mt-4 flex h-12 items-center justify-center gap-6 overflow-hidden rounded-full [--for-width:48px] [--ml:16px] lg:h-24 lg:[--for-width:96px] lg:[--ml:32px] ${navOpen ? "p-0 lg:justify-between lg:p-8" : "lg:justify-center"} ${colorOn && "bg-[#faf6f0]"} drop-shadow-lg `}
+        initial={{ width: "97%", marginLeft: "auto", marginRight: "auto" }}
         animate={
           !navOpen
             ? {
@@ -67,8 +67,8 @@ const Navbar = (props: Props) => {
         }
         transition={{
           default: { duration: 0.7, ease: easeInOut },
-          marginLeft: !navOpen ? { delay: 0 } : { delay: 0.8 },
-          marginRight: !navOpen ? { delay: 0 } : { delay: 0.8 },
+          marginLeft: !navOpen ? { delayChildren: 0 } : { delayChildren: 0.8 },
+          marginRight: !navOpen ? { delayChildren: 0 } : { delayChildren: 0.8 },
         }}
       >
         <div className={`flex h-10 items-center justify-center lg:h-20`}>

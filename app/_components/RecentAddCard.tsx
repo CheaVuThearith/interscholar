@@ -1,4 +1,6 @@
+"use client";
 import { ArrowRightIcon } from "@heroicons/react/16/solid";
+import { motion } from "framer-motion";
 import React, { Suspense } from "react";
 
 type Props = {
@@ -7,13 +9,16 @@ type Props = {
   description?: string;
   deadline?: Date;
 };
-
+const variants = { show: { x: 0, opacity:1 }, hidden: { x: -50, opacity:0 } };
 const RecentAddCard = ({ image, title, description, deadline }: Props) => {
   if (deadline) {
     deadline = new Date(deadline);
   }
   return (
-    <div className="max-w-80 h-[700px] flex flex-col justify-between">
+    <motion.div
+      variants={variants}
+      className="flex h-[700px] max-w-80 flex-col justify-between"
+    >
       <div className="flex flex-col items-start justify-center gap-y-3">
         {title ? (
           <img
@@ -40,7 +45,7 @@ const RecentAddCard = ({ image, title, description, deadline }: Props) => {
       <button className="group mt-2 flex size-24 items-center justify-center gap-x-2 rounded-full bg-[#333333] font-semibold shadow-black hover:shadow-md">
         <ArrowRightIcon className="size-12 fill-white transition-all duration-200 group-hover:scale-125" />
       </button>
-    </div>
+    </motion.div>
   );
 };
 

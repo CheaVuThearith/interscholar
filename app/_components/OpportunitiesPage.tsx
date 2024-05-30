@@ -56,8 +56,10 @@ const filterHashmap = {
   extracurriculars: extracurricularsFilters,
 };
 const OpportunitiesPage = ({ params, info, amountOfPages }: Props) => {
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-  useEffect(() => {}, [selectedId]);
+  const [selectedId, setSelectedId] = useState<number | null>(null);
+  useEffect(() => {
+    console.log(selectedId);
+  }, [selectedId]);
   return (
     <>
       <LayoutGroup>
@@ -72,8 +74,8 @@ const OpportunitiesPage = ({ params, info, amountOfPages }: Props) => {
             <div className="flex w-full flex-wrap place-content-center gap-x-5 gap-y-20">
               {info.map((entry, index) => (
                 <EventCard
-                  onClick={() => setSelectedId(index.toString())}
-                  layoutId={index.toString()}
+                  onClick={() => setSelectedId(index)}
+                  layoutId={index}
                   key={index}
                   title={entry.title}
                   deadline={entry.deadline}
@@ -82,18 +84,16 @@ const OpportunitiesPage = ({ params, info, amountOfPages }: Props) => {
                 />
               ))}
               <AnimatePresence>
-                {selectedId && (
-                  <>
-                    <EventCardExpand
-                    description={info[parseInt(selectedId)].description}
-                      title={info[parseInt(selectedId)].title}
-                      deadline={info[parseInt(selectedId)].deadline}
-                      location={info[parseInt(selectedId)].location}
-                      organization={info[parseInt(selectedId)].organization}
-                      onClick={() => setSelectedId(null)}
-                      layoutId={selectedId}
-                    />
-                  </>
+                {selectedId?.toString() && window.innerWidth > 1024 && (
+                  <EventCardExpand
+                    onClick={() => setSelectedId(null)}
+                    title={info[selectedId].title}
+                    deadline={info[selectedId].deadline}
+                    location={info[selectedId].location}
+                    organization={info[selectedId].organization}
+                    layoutId={selectedId}
+                    description=""
+                  />
                 )}
               </AnimatePresence>
             </div>

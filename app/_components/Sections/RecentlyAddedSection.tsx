@@ -1,7 +1,8 @@
 import React from "react";
-import RecentAddCard from "./RecentAddCard";
+import RecentAddCard from "../RecentAddCard";
 import { usePathname } from "next/navigation";
 import { Scholarship } from "@/lib/mongo";
+import RecentCardsContainer from "../RecentCardsContainer";
 
 type Props = {};
 interface scholarshipType {
@@ -23,11 +24,10 @@ interface scholarshipType {
   arts: boolean;
 }
 
-
-
 const RecentlyAddedSection = async (props: Props) => {
-  const scholarships  =
-    await (Scholarship.find({},{} , {limit:4}).sort({"_id":-1}));
+  const scholarships = await Scholarship.find({}, {}, { limit: 4 }).sort({
+    _id: -1,
+  });
   return (
     <section className="px-6 py-20">
       <div
@@ -35,13 +35,17 @@ const RecentlyAddedSection = async (props: Props) => {
 gap-y-20 xl:items-stretch"
       >
         <h1 className="text-6xl font-bold ">Recently Added</h1>
-        <div className="flex flex-wrap items-start justify-center gap-12">
-            {
-                scholarships.map((scholarship,index)=>(
-                    <RecentAddCard key={index} deadline={scholarship.deadline} description={scholarship.description} image="" title={scholarship.title} />
-                ))
-            }
-        </div>
+        <RecentCardsContainer>
+          {scholarships.map((scholarship, index) => (
+            <RecentAddCard
+              key={index}
+              deadline={scholarship.deadline}
+              description={scholarship.description}
+              image=""
+              title={scholarship.title}
+            />
+          ))}
+        </RecentCardsContainer>
       </div>
     </section>
   );

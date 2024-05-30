@@ -9,16 +9,18 @@ const PaginationControls = ({ amountOfPages, className }: Props) => {
   const router = useRouter();
   const page = parseInt(searchParams.get("page") ?? "1");
   const itemsPerPage = parseInt(searchParams.get("itemsPerPage") ?? "9");
+  const filterString = searchParams.get("filterList") ?? "";
+  
   const nextPage = () => {
     router.push(
-      `?page=${Math.min(page + 1, amountOfPages)}&itemsPerPage=${itemsPerPage}`,
+      `?filterList=${filterString}&page=${Math.min(page + 1, amountOfPages)}&itemsPerPage=${itemsPerPage}`,
     );
   };
   const prevPage = () => {
-    router.push(`?page=${Math.max(page - 1, 1)}&itemsPerPage=${itemsPerPage}`);
+    router.push(`?filterList=${filterString}&page=${Math.max(page - 1, 1)}&itemsPerPage=${itemsPerPage}`);
   };
   const toPage = (page: number) => {
-    router.push(`?page=${page}&itemsPerPage=${itemsPerPage}`);
+    router.push(`?filterList=${filterString}&page=${page}&itemsPerPage=${itemsPerPage}`);
   };
   return (
     <div

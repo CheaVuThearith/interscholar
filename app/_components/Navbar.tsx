@@ -67,8 +67,8 @@ const Navbar = (props: Props) => {
         }
         transition={{
           default: { duration: 0.7, ease: easeInOut },
-          marginLeft: !navOpen ? { delayChildren: 0 } : { delayChildren: 0.8 },
-          marginRight: !navOpen ? { delayChildren: 0 } : { delayChildren: 0.8 },
+          marginLeft: !navOpen ? { delay: 0 } : { delay: 0.8 },
+          marginRight: !navOpen ? { delay: 0 } : { delay: 0.8 },
         }}
       >
         <div className={`flex h-10 items-center justify-center lg:h-20`}>

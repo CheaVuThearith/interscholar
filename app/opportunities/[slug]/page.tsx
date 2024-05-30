@@ -88,7 +88,7 @@ const page = async ({ searchParams, params }: Props) => {
       <div className="mx-auto min-h-[150vh] mt-20 flex max-w-screen-2xl flex-col items-start justify-around gap-y-20 lg:px-8 px-4 lg:flex-row">
         {/* filters */}
         <FilterMenu filterOptions={filterOptions} />
-        <div className="flex max-w-screen-xl flex-col gap-y-10">
+        <div className="flex w-screen-xl flex-col gap-y-10">
           <div className="flex w-full flex-wrap place-content-center gap-x-5 gap-y-20">
             {info.map((entry, index) => (
               <EventCard

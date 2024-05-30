@@ -61,7 +61,7 @@ const FilterMenu = ({ filterOptions }: Props) => {
                       );
                     }
                   }}
-                  className={`${activeFilters.includes(filterId) && "bg-[#00000020]"}  min-w-max cursor-pointer rounded-xl px-4 py-2 transition-all duration-200 hover:bg-[#00000023] active:scale-105`}
+                  className={`${activeFilters.includes(filterId) && "bg-[#00000020]"}  min-w-max cursor-pointer rounded-xl px-4 py-2 transition-all duration-200 xl:hover:bg-[#00000023] active:scale-105`}
                 >
                   {filter}
                 </li>

@@ -84,8 +84,8 @@ const OpportunitiesPage = ({ params, info, amountOfPages }: Props) => {
               <AnimatePresence>
                 {selectedId && (
                   <>
-                    <div className="fixed inset-0 bg-black"></div>
                     <EventCardExpand
+                    description={info[parseInt(selectedId)].description}
                       title={info[parseInt(selectedId)].title}
                       deadline={info[parseInt(selectedId)].deadline}
                       location={info[parseInt(selectedId)].location}

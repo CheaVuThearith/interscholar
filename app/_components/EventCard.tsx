@@ -14,7 +14,7 @@ type Props = {
   location?: string;
   className?: string;
   _id?: string;
-  layoutId?:string
+  layoutId?: string;
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 };
 
@@ -36,7 +36,7 @@ const EventCard = ({
     <motion.div
       onClick={onClick}
       layoutId={layoutId}
-      className={`flex h-full max-w-[368px] transform cursor-pointer flex-col items-start justify-between gap-y-3 self-start justify-self-center rounded-xl bg-white p-0 shadow-xl transition-all duration-200 lg:p-6 lg:hover:scale-105 lg:hover:border`}
+      className={`flex h-full max-w-[368px] transform cursor-pointer flex-col items-start justify-between gap-y-3 self-start justify-self-center rounded-xl bg-white shadow-xl transition-all duration-200 p-6 lg:hover:scale-105 lg:hover:border`}
     >
       <div className="flex flex-col gap-y-3">
         {title ? (

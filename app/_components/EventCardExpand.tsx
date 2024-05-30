@@ -1,11 +1,6 @@
 "use client";
 import { CalendarDaysIcon, MapPinIcon } from "@heroicons/react/16/solid";
 import { motion } from "framer-motion";
-import { usePathname } from "next/navigation";
-
-/**
- * Props for the EventCard component.
- */
 type Props = {
   image?: string;
   title?: string;
@@ -14,11 +9,11 @@ type Props = {
   location?: string;
   className?: string;
   _id?: string;
-  layoutId?:string
-  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  layoutId?: string;
+  onClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 };
 
-const EventCard = ({
+const EventCardExpand = ({
   _id = "0",
   image,
   title,
@@ -26,7 +21,7 @@ const EventCard = ({
   organization,
   location,
   className,
-  layoutId,
+  layoutId = _id,
   onClick,
 }: Props) => {
   if (deadline) {
@@ -34,9 +29,12 @@ const EventCard = ({
   }
   return (
     <motion.div
+    initial={{opacity:0}}
+    animate={{opacity:1}}
+    transition={{delay:0.2}}
       onClick={onClick}
       layoutId={layoutId}
-      className={`flex h-full max-w-[368px] transform cursor-pointer flex-col items-start justify-between gap-y-3 self-start justify-self-center rounded-xl bg-white p-0 shadow-xl transition-all duration-200 lg:p-6 lg:hover:scale-105 lg:hover:border`}
+      className={`flex fixed cursor-pointer m-auto p-10 inset-0 items-start justify-between gap-y-3 rounded-xl bg-white shadow-xl transition-all duration-200 lg:hover:scale-105 lg:hover:border`}
     >
       <div className="flex flex-col gap-y-3">
         {title ? (
@@ -88,4 +86,4 @@ const EventCard = ({
   );
 };
 
-export default EventCard;
+export default EventCardExpand;

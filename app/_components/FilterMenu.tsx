@@ -7,6 +7,10 @@ import React, { useEffect, useState } from "react";
 type Props = {
   filterOptions: string[];
 };
+const variants = {
+  hide: { x: -10, y: -20, opacity: 0 },
+  show: { x: 0, y: 0, opacity: 1 },
+};
 const FilterMenu = ({ filterOptions }: Props) => {
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const [filterOn, setFilterOn] = useState(false);
@@ -27,7 +31,7 @@ const FilterMenu = ({ filterOptions }: Props) => {
       <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className={`size-16 rounded-full p-3 transition-all duration-200 ${filterOn && "bg-[#00000020] shadow-xl"} `}
+        className={`size-16 rounded-full p-3 ${filterOn && "bg-[#00000020] shadow-xl"} `}
         onClick={() => {
           setFilterOn((f) => !f);
         }}
@@ -37,34 +41,37 @@ const FilterMenu = ({ filterOptions }: Props) => {
       <AnimatePresence>
         {filterOn && (
           <motion.ul
-            initial={{ x: -10, y: -20, opacity: 0 }}
-            transition={{
-              bounce: 0.2,
-              duration: 0.2,
-              type: "spring",
-            }}
-            animate={{ x: 0, y: 0, opacity: 1 }}
-            exit={{ x: -10, y: -20, opacity: 0 }}
-            className="relative flex w-full flex-row gap-x-3 gap-y-1 overflow-x-scroll lg:w-auto lg:flex-col"
-          >
+            initial="hide"
+            animate="show"
+            exit="hide"
+            variants={variants}
+            transition={{ staggerChildren: 0.04 }}
+            className="hide_scroll relative flex w-full flex-row gap-x-3 gap-y-1 overflow-x-scroll lg:w-auto lg:flex-col"
+        >
             {filterOptions.map((filter, index) => {
               const filterId = filter.replaceAll(" ", "").toLowerCase();
               return (
-                <li
+                <motion.li
                   key={index}
+                  variants={variants}
                   onClick={() => {
                     if (!activeFilters.includes(filterId)) {
                       setActiveFilters((a) => [...a, filterId]);
                     } else {
                       setActiveFilters(() =>
-                        activeFilters.filter((f) => f !== filterId),
+                        activeFilters.filter((f) => f !== filterId)
                       );
                     }
                   }}
-                  className={`${activeFilters.includes(filterId) && "bg-[#00000020]"}  min-w-max cursor-pointer rounded-xl px-4 py-2 transition-all duration-200 xl:hover:bg-[#00000023] active:scale-105`}
+                  whileHover={
+                    window.innerWidth > 1024
+                      ? { background: "#00000023" }
+                      : undefined
+                  }
+                  className={`${activeFilters.includes(filterId) && "bg-[#00000020]"} min-w-max cursor-pointer  rounded-xl bg-[#ffffff00] px-4 py-2 active:scale-105`}
                 >
                   {filter}
-                </li>
+                </motion.li>
               );
             })}
           </motion.ul>

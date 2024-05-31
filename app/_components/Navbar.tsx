@@ -1,5 +1,5 @@
 "use client";
-import { easeInOut, motion } from "framer-motion";
+import { AnimatePresence, easeInOut, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -55,7 +55,7 @@ const Navbar = (props: Props) => {
         }}
         ref={NavbarRef}
         className={`h12 fixed inset-x-0 top-5 z-10 mt-4 flex flex-col items-center justify-center gap-6 overflow-hidden rounded-lg [--for-height-closed:3rem] [--for-height:auto] [--for-padding:16px] [--for-width:48px] [--ml:16px] lg:sticky lg:flex-row lg:overflow-hidden lg:rounded-full lg:[--for-height-closed:96px] lg:[--for-height:6rem] lg:[--for-padding:2rem] 
-         lg:[--for-width:96px] lg:[--ml:32px] ${navOpen ? "p-0 lg:justify-between lg:p-8" : "lg:justify-center"} ${colorOn && "bg-[#faf6f0]"} drop-shadow-lg `}
+         lg:[--for-width:96px] lg:[--ml:32px] ${navOpen ? "p-4 lg:justify-between lg:p-8" : "p-0 lg:justify-center"} ${colorOn && "bg-[#faf6f0]"} drop-shadow-lg `}
         initial={{
           width: "97%",
           marginLeft: "auto",
@@ -65,13 +65,11 @@ const Navbar = (props: Props) => {
         animate={
           !navOpen
             ? {
-                paddingTop: 0,
                 width: "var(--for-width)",
                 marginLeft: "var(--ml)",
                 height: "var(--for-height-closed)",
               }
             : {
-                paddingTop: "var(--for-padding)",
                 width: "97%",
                 marginLeft: "auto",
                 marginRight: "auto",
@@ -104,33 +102,37 @@ const Navbar = (props: Props) => {
             )}
           </div>
         </div>
-        {navOpen && (
-          <>
-            <div className=" flex w-full flex-col items-center justify-center gap-x-12 lg:w-auto lg:flex-row">
-              {pages.map((page, index) => {
-                const href = `/opportunities/${page.toLowerCase().replace("-", "")}`;
-                return (
-                  <Link
-                    className="flex h-16 w-full items-center justify-center rounded-xl text-lg transition-colors duration-200 lg:hover:bg-transparent hover:bg-slate-500 lg:w-auto"
-                    key={index}
-                    onMouseEnter={() => {
-                      router.prefetch(href);
-                    }}
-                    href={href}
-                  >
-                    {page}
-                  </Link>
-                );
-              })}
-            </div>
-            <div className="hidden items-center justify-center gap-x-5 lg:flex">
-              <SearchBar />
-              <button className="hidden rounded-md bg-[#99bc85] px-3 py-2 lg:block">
-                Login
-              </button>
-            </div>
-          </>
-        )}
+        <AnimatePresence>
+          {navOpen && (
+            <>
+              <div className=" flex w-full flex-col items-center justify-center gap-x-12 lg:w-auto lg:flex-row">
+                {pages.map((page, index) => {
+                  const href = `/opportunities/${page.toLowerCase().replace("-", "")}`;
+                  return (
+                    <Link
+                    onClick={()=>{if(window.innerWidth < 1024){()=>setNavOpen(false)}}
+                      }
+                      className="flex h-16 w-full items-center justify-center rounded-xl text-lg transition-colors duration-200 hover:bg-slate-500 lg:w-auto lg:hover:bg-transparent"
+                      key={index}
+                      onMouseEnter={() => {
+                        router.prefetch(href);
+                      }}
+                      href={href}
+                    >
+                      {page}
+                    </Link>
+                  );
+                })}
+              </div>
+              <div className="hidden items-center justify-center opacity-60 gap-x-5 lg:flex">
+                <SearchBar />
+                <button className="cursor-not-allowed hidden rounded-md bg-[#99bc85] px-3 py-2 lg:block">
+                  Login
+                </button>
+              </div>
+            </>
+          )}
+        </AnimatePresence>
       </motion.nav>
     </>
   );

@@ -4,11 +4,9 @@ import React, { useState } from "react";
 type Props = {};
 
 const SearchBar = (props: Props) => {
-  const filterButtons = ["Scholarships", "Extra-Curricular", "Internships"];
-  const [filterMenuOn, setFilterMenuOn] = useState<boolean>(false);
   return (
     <div className="relative flex h-8 items-center justify-center overflow-hidden rounded-md border border-black">
-      <input type="text" className="w-[100%] p-5 pl-10" />
+      <input type="text" disabled className="cursor-not-allowed w-[100%] p-5 pl-10" />
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

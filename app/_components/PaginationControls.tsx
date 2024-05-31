@@ -29,7 +29,7 @@ const PaginationControls = ({ amountOfPages, className }: Props) => {
     >
       <button
         onClick={prevPage}
-        className="flex size-10 items-center justify-center rounded-lg bg-[#f5f5f5]"
+        className="active:scale-125 transition-all duration-200 flex size-10 items-center justify-center rounded-lg bg-[#f5f5f5]"
       >
         <ArrowLeftIcon className="size-8" />
       </button>
@@ -40,7 +40,7 @@ const PaginationControls = ({ amountOfPages, className }: Props) => {
               <button
                 key={index + 1}
                 onClick={() => toPage(index + 1)}
-                className={`flex size-10 items-center justify-center rounded-lg ${page === index + 1 ? "bg-white" : "bg-[#f5f5f5]"}`}
+                className={`active:scale-125 transition-all duration-200 flex size-10 items-center justify-center rounded-lg ${page === index + 1 ? "bg-white" : "bg-[#f5f5f5]"}`}
               >
                 {index + 1}
               </button>
@@ -49,7 +49,7 @@ const PaginationControls = ({ amountOfPages, className }: Props) => {
             <button
               key={1}
               onClick={() => toPage(1)}
-              className={`flex size-10 items-center justify-center rounded-lg ${page === 1 ? "bg-white" : "bg-[#f5f5f5]"}`}
+              className={`active:scale-125 transition-all duration-200 flex size-10 items-center justify-center rounded-lg ${page === 1 ? "bg-white" : "bg-[#f5f5f5]"}`}
             >
               1
             </button>,
@@ -57,7 +57,7 @@ const PaginationControls = ({ amountOfPages, className }: Props) => {
               <button
                 key="current"
                 onClick={() => toPage(page > 2 ? page : 2)}
-                className={`${page >= 2 ? "bg-white" : "bg-[#f5f5f5]"} flex size-10 items-center justify-center rounded-lg`}
+                className={`active:scale-125 transition-all duration-200 ${ page >= 2 ? "bg-white" : "bg-[#f5f5f5]"} flex size-10 items-center justify-center rounded-lg`}
               >
                 {page > 2 ? page : 2}
               </button>
@@ -71,14 +71,14 @@ const PaginationControls = ({ amountOfPages, className }: Props) => {
             <button
               key="last"
               onClick={() => toPage(amountOfPages)}
-              className={`flex size-10 items-center justify-center rounded-lg ${page === amountOfPages ? "bg-white" : "bg-[#f5f5f5]"}`}
+              className={`active:scale-125 transition-all duration-200 flex size-10 items-center justify-center rounded-lg ${page === amountOfPages ? "bg-white" : "bg-[#f5f5f5]"}`}
             >
               {amountOfPages}
             </button>,
           ]}
       <button
         onClick={nextPage}
-        className="flex size-10 items-center justify-center rounded-lg bg-[#f5f5f5]"
+        className="active:scale-125 transition-all duration-200 flex size-10 items-center justify-center rounded-lg bg-[#f5f5f5]"
       >
         <ArrowRightIcon className="size-8" />
       </button>

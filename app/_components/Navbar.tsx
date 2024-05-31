@@ -1,14 +1,13 @@
 "use client";
-import { AnimatePresence, easeInOut, motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import SearchBar from "./SearchBar";
 type Props = {};
 
 const Navbar = (props: Props) => {
   const router = useRouter();
-  const pathName = usePathname();
   const pages = [
     "Scholarships",
     "Competitions",
@@ -44,96 +43,117 @@ const Navbar = (props: Props) => {
 
   return (
     <>
-      <motion.nav
-        onTap={() => {
-          setNavOpen(true);
-        }}
-        onMouseEnter={() => {
-          if (window.innerWidth > 1024) {
+      {navOpen ? (
+        <motion.nav
+          layout
+          onTap={() => {
             setNavOpen(true);
-          }
-        }}
-        ref={NavbarRef}
-        className={`h12 fixed inset-x-0 top-5 z-10 mt-4 flex flex-col items-center justify-center gap-6 overflow-hidden rounded-lg [--for-height-closed:3rem] [--for-height:auto] [--for-padding:16px] [--for-width:48px] [--ml:16px] lg:sticky lg:flex-row lg:overflow-hidden lg:rounded-full lg:[--for-height-closed:96px] lg:[--for-height:6rem] lg:[--for-padding:2rem] 
-         lg:[--for-width:96px] lg:[--ml:32px] ${navOpen ? "p-4 lg:justify-between lg:p-8" : "p-0 lg:justify-center"} ${colorOn && "bg-[#faf6f0]"} drop-shadow-lg `}
-        initial={{
-          width: "97%",
-          marginLeft: "auto",
-          marginRight: "auto",
-          height: "var(--for-height)",
-        }}
-        animate={
-          !navOpen
-            ? {
-                width: "var(--for-width)",
-                marginLeft: "var(--ml)",
-                height: "var(--for-height-closed)",
-              }
-            : {
-                width: "97%",
-                marginLeft: "auto",
-                marginRight: "auto",
-                height: "var(--for-height)",
-              }
-        }
-        transition={{
-          default: { duration: 0.7, ease: easeInOut },
-          marginLeft: !navOpen ? { delay: 0 } : { delay: 0.8 },
-          marginRight: !navOpen ? { delay: 0 } : { delay: 0.8 },
-        }}
-      >
-        {/* logo */}
-        <div className={`flex h-10 items-center justify-center lg:h-20`}>
-          <div
-            className={` flex items-center justify-center gap-x-2 transition-all`}
+          }}
+          onMouseEnter={() => {
+            if (window.innerWidth > 1024) {
+              setNavOpen(true);
+            }
+          }}
+          ref={NavbarRef}
+          className={`fixed inset-x-0 top-5 z-10 mx-auto mr-auto mt-4 flex aspect-auto h-auto w-[97%] flex-col items-center justify-center gap-6 rounded-xl p-4 drop-shadow-lg lg:sticky lg:h-24 lg:flex-row lg:justify-between lg:p-8 ${colorOn && "bg-[#faf6f0]"}`}
+        >
+          {/* logo */}
+          <motion.div
+            layout="position"
+            className={`flex h-10 items-center justify-center gap-x-2 lg:h-20`}
           >
-            <img
+            <motion.img
+              layoutId="navbar_image_layout"
               className="size-8 lg:size-16"
               src="/interscholarlogo.png"
               alt="logo"
             />
-            {navOpen && (
-              <a
-                href="/"
-                className="flex items-center justify-center text-base font-semibold text-[#85bd71] lg:text-xl"
-              >
-                InterScholar
-              </a>
-            )}
-          </div>
-        </div>
-        <AnimatePresence>
-          {navOpen && (
-            <>
-              <div className=" flex w-full flex-col items-center justify-center gap-x-12 lg:w-auto lg:flex-row">
-                {pages.map((page, index) => {
-                  const href = `/opportunities/${page.toLowerCase().replace("-", "")}`;
-                  return (
-                    <Link
-                    onClick={()=>{if(window.innerWidth < 1024){()=>setNavOpen(false)}}
+            <motion.a
+              layout="position"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+              href="/"
+              className="flex items-center justify-center text-base font-semibold text-[#85bd71] lg:text-xl"
+            >
+              InterScholar
+            </motion.a>
+          </motion.div>
+          <AnimatePresence>
+            <motion.div
+              initial={{
+                opacity: 0,
+                x: -50,
+                y: "var(--for_y)",
+              }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ delay: 0.2 }}
+              layout="position"
+              className=" flex w-full flex-col items-center justify-center gap-x-12 [--for_y:-100] lg:w-auto lg:flex-row lg:[--for_y:0]"
+            >
+              {pages.map((page, index) => {
+                const href = `/opportunities/${page.toLowerCase().replace("-", "")}`;
+                return (
+                  <Link
+                    onClick={() => {
+                      if (window.innerWidth < 1024) {
+                        setNavOpen(false);
                       }
-                      className="flex h-16 w-full items-center justify-center rounded-xl text-lg transition-colors duration-200 hover:bg-slate-500 lg:w-auto lg:hover:bg-transparent"
-                      key={index}
-                      onMouseEnter={() => {
-                        router.prefetch(href);
-                      }}
-                      href={href}
-                    >
-                      {page}
-                    </Link>
-                  );
-                })}
-              </div>
-              <div className="hidden items-center justify-center opacity-60 gap-x-5 lg:flex">
-                <SearchBar />
-                <button className="cursor-not-allowed hidden rounded-md bg-[#99bc85] px-3 py-2 lg:block">
-                  Login
-                </button>
-              </div>
-            </>
-          )}
-        </AnimatePresence>
-      </motion.nav>
+                    }}
+                    className="flex h-16 w-full items-center justify-center rounded-xl text-lg transition-colors hover:bg-slate-500 lg:w-auto lg:hover:bg-transparent"
+                    key={index}
+                    onMouseEnter={() => {
+                      router.prefetch(href);
+                    }}
+                    href={href}
+                  >
+                    {page}
+                  </Link>
+                );
+              })}
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4 }}
+              className="hidden items-center justify-center gap-x-5 opacity-60 lg:flex"
+            >
+              <SearchBar />
+              <button className="hidden cursor-not-allowed rounded-md bg-[#99bc85] px-3 py-2 lg:block">
+                Login
+              </button>
+            </motion.div>
+          </AnimatePresence>
+        </motion.nav>
+      ) : (
+        // shurnk
+        <motion.nav
+          layout
+          onTap={() => {
+            setNavOpen(true);
+          }}
+          onMouseEnter={() => {
+            if (window.innerWidth > 1024) {
+              setNavOpen(true);
+            }
+          }}
+          ref={NavbarRef}
+          className={`fixed top-5 z-10 ml-4 mr-auto mt-4 flex h-12 w-12 flex-col items-center justify-center gap-6 rounded-xl bg-[#faf6f0] p-0 drop-shadow-lg lg:sticky lg:ml-8 lg:h-24 lg:w-24 lg:flex-row `}
+        >
+          <motion.div
+            layout="position"
+            className={`flex h-10 items-center justify-center gap-x-2 lg:h-20`}
+          >
+            <motion.img
+              layout="position"
+              layoutId="navbar_image_layout"
+              className="size-8 lg:size-16"
+              src="/interscholarlogo.png"
+              alt="logo"
+            />
+          </motion.div>
+        </motion.nav>
+      )}
     </>
   );
 };

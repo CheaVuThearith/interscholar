@@ -47,7 +47,7 @@ const FilterMenu = ({ filterOptions }: Props) => {
             variants={variants}
             transition={{ staggerChildren: 0.04 }}
             className="hide_scroll relative flex w-full flex-row gap-x-3 gap-y-1 overflow-x-scroll lg:w-auto lg:flex-col"
-        >
+          >
             {filterOptions.map((filter, index) => {
               const filterId = filter.replaceAll(" ", "").toLowerCase();
               return (
@@ -59,16 +59,12 @@ const FilterMenu = ({ filterOptions }: Props) => {
                       setActiveFilters((a) => [...a, filterId]);
                     } else {
                       setActiveFilters(() =>
-                        activeFilters.filter((f) => f !== filterId)
+                        activeFilters.filter((f) => f !== filterId),
                       );
                     }
                   }}
-                  whileHover={
-                    window.innerWidth > 1024
-                      ? { background: "#00000023" }
-                      : undefined
-                  }
-                  className={`${activeFilters.includes(filterId) && "bg-[#00000020]"} min-w-max cursor-pointer  rounded-xl bg-[#ffffff00] px-4 py-2 active:scale-105`}
+                  whileTap={{ scale: 1.05 }}
+                  className={`${activeFilters.includes(filterId) && "bg-[#00000020]"} min-w-max cursor-pointer rounded-xl px-4 py-2 transition-colors hover:bg-[#00000020] active:scale-105`}
                 >
                   {filter}
                 </motion.li>

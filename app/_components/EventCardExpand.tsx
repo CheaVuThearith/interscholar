@@ -38,52 +38,33 @@ const EventCardExpand = ({
       className="fixed inset-0 z-10 flex cursor-pointer items-center justify-center bg-black/50"
     >
       <div onClick={onClick} className="fixed inset-0"></div>
+      {/* content wrapper */}
       <motion.div
         layoutId={layoutId?.toString()}
-        className={`fixed z-30 mx-auto flex w-[40rem] cursor-pointer flex-col justify-between gap-5 rounded-xl bg-white p-10 shadow-xl`}
+        className="fixed z-30 mx-auto flex w-[40rem] cursor-pointer flex-col justify-between gap-2 rounded-xl bg-white p-10 shadow-xl"
       >
-        <motion.div className="flex gap-5">
-          {/* img motion.div */}
-          <motion.div className="flex flex-col gap-y-3">
-            <motion.img
-              layoutId={`image${layoutId}`}
-              src={image}
-              className="size-80 rounded-xl border-0 object-cover"
-            ></motion.img>
-            <motion.div
-              layoutId={`title${layoutId}`}
-              className="flex w-80 flex-col items-start gap-y-1"
-            >
-              <motion.p
-                className={`rounded-md text-xl font-semibold text-[#85a6bc]`}
-              >
-                {title}
-              </motion.p>
-              <motion.p className={`rounded-md text-[#515050]`}>
-                {organization}
-              </motion.p>
-            </motion.div>
-          </motion.div>
-
-          {/* readmore */}
-          <motion.div
-            className={`flex h-80 w-full flex-col items-start justify-center rounded-lg`}
+        <motion.img
+          draggable="false"
+          layoutId={`image${layoutId}`}
+          src={image}
+          className="h-80 w-[40rem] rounded-xl border-0 object-cover"
+        ></motion.img>
+        {/* title and organization */}
+        <motion.div
+          layout="position"
+          layoutId={`title${layoutId}`}
+          className="flex flex-col "
+        >
+          <motion.p
+            className={`rounded-md text-xl font-semibold text-[#85a6bc]`}
           >
-            <motion.div layoutId={`date${layoutId}`} className="mt-auto">
-              <motion.p className={`flex items-center gap-x-1`}>
-                <CalendarDaysIcon className="size-7 shrink-0" />
-                <motion.span className={`rounded-md`}>
-                  {deadline &&
-                    `${deadline.getDate()}/${deadline.getMonth()}/${deadline.getFullYear()}`}
-                </motion.span>
-              </motion.p>
-              <motion.p className={`flex  items-center gap-x-1`}>
-                <MapPinIcon className="size-7 shrink-0" />
-                <motion.span className={` rounded-md`}>{location}</motion.span>
-              </motion.p>
-            </motion.div>
-          </motion.div>
+            {title}
+          </motion.p>
+          <motion.p className={`rounded-md text-[#515050]`}>
+            {organization}
+          </motion.p>
         </motion.div>
+
         <motion.p
           initial={{ opacity: 0 }}
           exit={{ opacity: 0, scale: 0.5 }}
@@ -91,6 +72,25 @@ const EventCardExpand = ({
         >
           {description}
         </motion.p>
+        {/* date */}
+        <motion.div
+          layout="position"
+          layoutId={`date${layoutId}`}
+          className="mt-auto flex w-full flex-col items-start justify-center rounded-lg"
+        >
+          <p className={`flex items-center gap-x-1`}>
+            <CalendarDaysIcon className="size-7 shrink-0" />
+            <span className={`rounded-md`}>
+              {deadline &&
+                `${deadline.getDate()}/${deadline.getMonth()}/${deadline.getFullYear()}`}
+            </span>
+          </p>
+          <p className={`flex items-center gap-x-1`}>
+            <MapPinIcon className="size-7 shrink-0" />
+            <span className={` rounded-md`}>{location}</span>
+          </p>
+        </motion.div>
+        {/* readmore button */}
         <motion.a
           href={link}
           layoutId={`button${layoutId}`}

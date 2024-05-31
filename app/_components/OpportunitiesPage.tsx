@@ -62,7 +62,7 @@ const OpportunitiesPage = ({ params, info, amountOfPages }: Props) => {
   useEffect(() => {}, [selectedId]);
   return (
     <>
-      <div className="relative mx-auto mt-20 flex min-h-[150vh] max-w-screen-2xl flex-col items-center lg:items-start justify-around gap-y-20 px-4 lg:flex-row lg:px-8">
+      <div className="relative mx-auto mt-20 flex min-h-[150vh] max-w-screen-2xl flex-col items-center justify-around gap-y-20 px-4 lg:flex-row lg:items-start lg:px-8">
         {/* filters */}
         <FilterMenu
           filterOptions={
@@ -72,22 +72,25 @@ const OpportunitiesPage = ({ params, info, amountOfPages }: Props) => {
         <div className="flex max-w-screen-xl grow flex-col gap-y-10">
           <div className="flex w-full flex-wrap place-content-center gap-x-5 gap-y-20">
             {info.length < 1 && (
-              <div className="flex flex-col justify-center items-center gap-4">
+              <div className="flex flex-col items-center justify-center gap-4">
                 <FaceFrownIcon className="size-40" />
                 <p className="text-2xl">Sorry, nothing here</p>
-               <ClearFilterButton/>
+                <ClearFilterButton />
               </div>
             )}
             <LayoutGroup>
               {info.map((entry, index) => (
                 <EventCard
+                  image={entry.image}
                   onClick={() => setSelectedId(index)}
                   layoutId={index}
                   key={index}
+                  link={entry.link}
                   title={entry.title}
                   deadline={entry.deadline}
                   location={entry.location}
                   organization={entry.organization}
+                  description={entry.description}
                 />
               ))}
             </LayoutGroup>
@@ -95,20 +98,24 @@ const OpportunitiesPage = ({ params, info, amountOfPages }: Props) => {
               {selectedId?.toString() && window.innerWidth > 1024 && (
                 <EventCardExpand
                   onClick={() => setSelectedId(null)}
+                  image={info[selectedId].image}
                   title={info[selectedId].title}
                   deadline={info[selectedId].deadline}
                   location={info[selectedId].location}
                   organization={info[selectedId].organization}
                   layoutId={selectedId}
-                  description=""
+                  description={info[selectedId].description}
+                  link={info[selectedId].link}
                 />
               )}
             </AnimatePresence>
           </div>
-         {amountOfPages > 1 && <PaginationControls
-            className=" mx-auto lg:me-10 lg:ms-auto"
-            amountOfPages={Math.ceil(amountOfPages)}
-          />}
+          {amountOfPages > 1 && (
+            <PaginationControls
+              className=" mx-auto lg:me-10 lg:ms-auto"
+              amountOfPages={Math.ceil(amountOfPages)}
+            />
+          )}
         </div>
       </div>
     </>

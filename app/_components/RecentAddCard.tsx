@@ -6,22 +6,24 @@ import React, { Suspense } from "react";
 type Props = {
   image?: string;
   title?: string;
+  link?:string
   description?: string;
   deadline?: Date;
 };
-const variants = { show: { x: 0, opacity:1 }, hidden: { x: -50, opacity:0 } };
-const RecentAddCard = ({ image, title, description, deadline }: Props) => {
+const variants = { show: { x: 0, opacity: 1 }, hidden: { x: -50, opacity: 0 } };
+const RecentAddCard = ({link, image, title, description, deadline }: Props) => {
   if (deadline) {
     deadline = new Date(deadline);
   }
   return (
     <motion.div
       variants={variants}
-      className="flex h-[700px] max-w-80 flex-col justify-between"
+      className="flex h-[700px] overflow-hidden text-ellipsis max-w-80 flex-col justify-between"
     >
       <div className="flex flex-col items-start justify-center gap-y-3">
         {title ? (
           <img
+            draggable="false"
             src={image}
             className="size-80 rounded-xl border-0 object-cover"
           ></img>
@@ -33,18 +35,22 @@ const RecentAddCard = ({ image, title, description, deadline }: Props) => {
         <div
           className={`${!title && "loading h-16 w-full"} flex  flex-col items-start gap-y-1 rounded-xl`}
         >
-          <p className="text-3xl font-semibold">{title}</p>
-          <p className="text-[#515050]">
+          <p className="overflow-hidden text-ellipsis whitespace-nowrap text-3xl font-semibold">
+            {title && title.split(" ").slice(0, 5).join(" ") + "..."}
+          </p>
+          <p className="overflow-hidden text-ellipsis whitespace-nowrap text-[#515050]">
             {deadline &&
               `${deadline.getDate()}/${deadline.getMonth()}/${deadline.getFullYear()}`}
           </p>
         </div>
-        <p className="text-start text-[#515050]">{description}</p>
+        <p className="text-start text-[#515050]">
+          {description &&  description.substring(0, 300) + "..."}
+        </p>
       </div>
 
-      <button className="group mt-2 flex size-24 items-center justify-center gap-x-2 rounded-full bg-[#333333] font-semibold shadow-black hover:shadow-md">
+      <a href={link} className="group cursor-pointer mt-2 flex size-24 shrink-0 items-center justify-center gap-x-2 rounded-full bg-[#333333] font-semibold shadow-black hover:shadow-md">
         <ArrowRightIcon className="size-12 fill-white transition-all duration-200 group-hover:scale-125" />
-      </button>
+      </a>
     </motion.div>
   );
 };

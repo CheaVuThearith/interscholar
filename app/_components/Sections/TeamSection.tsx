@@ -16,21 +16,21 @@ const team: teamType[] = [
     name: "Chea VuThearith",
     role: "Developer",
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi totam dolores sunt consequuntur quidem veritatis sapiente eligendi dicta. Aspernatur, harum!",
+      "As someone who struggled to better themselves, I'm committed to make the journey to success more accessible to those who share the same dreams and goals as me.",
     image: "team/cheavuthearith.webp",
   },
   {
     name: "Song Uylong",
     role: "UX/UI Design",
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi totam dolores sunt consequuntur quidem veritatis sapiente eligendi dicta. Aspernatur, harum!",
+      "As Cambodia's new generation, I am dedicated to learning and contributing my best efforts to transform our society. I'm determined to help create a better place where everyone has equal access to the opportunities they deserve!",
     image: "team/songuylong.webp",
   },
   {
     name: "Chan Panha",
     role: "Researcher",
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi totam dolores sunt consequuntur quidem veritatis sapiente eligendi dicta. Aspernatur, harum!",
+      "I am dedicated and passionate, ready to change the world through my commitment to education and technology. I believe in the power of innovative solutions and community involvement to make a positive impact.",
     image: "team/chanpanha.webp",
   },
 ];

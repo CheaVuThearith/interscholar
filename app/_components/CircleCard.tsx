@@ -26,10 +26,11 @@ const CircleCard = ({
   return (
     <motion.div
       variants={variants}
-      className="flex max-w-96 flex-col items-center justify-center gap-y-3"
+      className="flex  max-w-96 flex-col items-center justify-around gap-y-3"
     >
       <div className="size-60 overflow-hidden rounded-full">
         <img
+          draggable="false"
           className={`${className} size-60 rounded-full object-cover`}
           style={style}
           src={image}
@@ -40,7 +41,9 @@ const CircleCard = ({
         <p className="text-3xl font-semibold">{name}</p>
         <p className="text-[#515050]">{role}</p>
       </div>
-      <p className="text-center text-[#515050]">{description}</p>
+      <p className="h-32 overflow-hidden text-ellipsis text-center text-[#515050]">
+        {description}
+      </p>
       <button className="group mt-2 flex h-12 w-52 items-center justify-center gap-x-2 rounded-3xl bg-[#99bc85] font-semibold">
         Read More
         <ArrowRightIcon className="size-6 transition-all duration-200 group-hover:translate-x-2 group-hover:scale-x-125" />{" "}

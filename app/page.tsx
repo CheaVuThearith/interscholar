@@ -17,9 +17,7 @@ import HeroSection from "./_components/Sections/HeroSection";
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-     <HeroSection/>
-      {/* features  */}
+     <HeroSection/> 
       <FeaturesSection />
       <TeamSection />
       <Suspense fallback={<LoadingRecentlyAddedSection />}>

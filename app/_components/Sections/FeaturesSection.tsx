@@ -5,6 +5,8 @@ import {
 } from "@heroicons/react/16/solid";
 import Card from "../FeatureCard";
 import { motion } from "framer-motion";
+import CrowdIcon from "../CrowdIcon";
+import ConsultantIcon from "../ConsultantIcon";
 
 type Props = {};
 const variants = {
@@ -33,11 +35,11 @@ gap-y-20 xl:items-stretch"
           <Card title="Assisted Application">
             <BuildingLibraryIcon className="size-44" />
           </Card>
-          <Card title="Resources">
-            <InformationCircleIcon className="size-44" />
+          <Card title="Connectivity">
+            <CrowdIcon className="size-44" />
           </Card>
-          <Card title="Assisted Application">
-            <BuildingLibraryIcon className="size-44" />
+          <Card title="Consultation">
+            <ConsultantIcon className="size-44" />
           </Card>
         </motion.div>
       </div>

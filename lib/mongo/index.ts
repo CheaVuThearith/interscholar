@@ -25,6 +25,8 @@ const scholarshipSchema = new Schema({
   facultyofscience: Boolean,
   facultyofsocialsciences: Boolean,
   facultyofarts: Boolean,
+  link: String,
+  image: String,
 });
 const competitionSchema = new Schema({
   title: String,
@@ -34,6 +36,8 @@ const competitionSchema = new Schema({
   description: String,
   local: Boolean,
   abroad: Boolean,
+  link: String,
+  image: String,
 });
 const internshipSchema = new Schema({
   title: String,
@@ -43,6 +47,8 @@ const internshipSchema = new Schema({
   description: String,
   local: Boolean,
   abroad: Boolean,
+  link: String,
+  image: String,
 });
 
 //volunteering activities
@@ -54,6 +60,8 @@ const extraCurricularSchema = new Schema({
   description: String,
   local: Boolean,
   abroad: Boolean,
+  link: String,
+  image: String,
 });
 
 export const Scholarship =

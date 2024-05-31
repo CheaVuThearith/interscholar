@@ -13,20 +13,20 @@ const infoTypeHashMap = {
   scholarships: Scholarship,
 };
 
-export async function POST(req: NextRequest, context: any) {
-  try {
-    const { params } = context;
-    const body = await req.json();
-    const infoData = body;
-    await infoTypeHashMap[params.slug as keyof typeof infoTypeHashMap].create(
-      infoData,
-    );
+// export async function POST(req: NextRequest, context: any) {
+//   try {
+//     const { params } = context;
+//     const body = await req.json();
+//     const infoData = body;
+//     await infoTypeHashMap[params.slug as keyof typeof infoTypeHashMap].create(
+//       infoData,
+//     );
 
-    return NextResponse.json({ message: "Success!" }, { status: 201 });
-  } catch (error) {
-    return NextResponse.json({ message: "Error", error }, { status: 500 });
-  }
-}
+//     return NextResponse.json({ message: "Success!" }, { status: 201 });
+//   } catch (error) {
+//     return NextResponse.json({ message: "Error", error }, { status: 500 });
+//   }
+// }
 export async function GET(req: NextRequest, context: any) {
   try {
     const { params } = context;
@@ -54,7 +54,7 @@ export async function GET(req: NextRequest, context: any) {
         {},
         { limit: itemsPerPage, skip: (page - 1) * itemsPerPage },
       )
-      .sort({ _id: -1 });
+      .sort({ deadline: -1 });
     return NextResponse.json(
       { info, itemsToFilter, filterList },
       { status: 200 },

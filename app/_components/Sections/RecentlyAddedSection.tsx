@@ -26,7 +26,7 @@ interface scholarshipType {
 
 const RecentlyAddedSection = async (props: Props) => {
   const scholarships = await Scholarship.find({}, {}, { limit: 4 }).sort({
-    _id: -1,
+    deadline: -1,
   });
   return (
     <section className="px-6 py-20">
@@ -41,7 +41,8 @@ gap-y-20 xl:items-stretch"
               key={index}
               deadline={scholarship.deadline}
               description={scholarship.description}
-              image=""
+              image={scholarship.image}
+              link={scholarship.link}
               title={scholarship.title}
             />
           ))}

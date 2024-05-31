@@ -23,7 +23,7 @@ const Loading = ({ searchParams = {} }: Props) => {
           {Array(itemsPerPage)
             .fill("")
             .map((_, index) => (
-              <EventCard key={index} />
+              <EventCard key={index} layoutId={index} />
             ))}
         </div>
       </div>

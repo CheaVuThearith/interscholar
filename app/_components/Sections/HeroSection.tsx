@@ -12,7 +12,7 @@ const checkList = [
 
 const HeroSection = (props: Props) => {
   return (
-    <section className=" green_section px-6 py-20">
+    <section className=" green_section mt-5 lg:mt-0 px-6 py-20">
       <div className="mx-auto flex max-w-screen-2xl flex-col items-center justify-between gap-y-12 xl:flex-row xl:items-stretch">
         <div className="flex max-w-[700px] flex-col gap-y-7">
           <div className="flex flex-col gap-y-4">

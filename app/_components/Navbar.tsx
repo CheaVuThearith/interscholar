@@ -18,7 +18,9 @@ const Navbar = (props: Props) => {
   ];
 
   const NavbarRef = useRef<HTMLDivElement>(null);
-  const [navOpen, setNavOpen] = useState(true);
+  const [navOpen, setNavOpen] = useState(
+    window.innerWidth < 1024 ? false : true
+  );
   const [colorOn, setColorOn] = useState(false);
 
   useEffect(() => {
@@ -51,18 +53,29 @@ const Navbar = (props: Props) => {
           }
         }}
         ref={NavbarRef}
-        className={`sticky top-5 z-10 mt-4 flex h-12 items-center justify-center gap-6 overflow-hidden rounded-full [--for-width:48px] [--ml:16px] lg:h-24 lg:[--for-width:96px] lg:[--ml:32px] ${navOpen ? "p-0 lg:justify-between lg:p-8" : "lg:justify-center"} ${colorOn && "bg-[#faf6f0]"} drop-shadow-lg `}
-        initial={{ width: "97%", marginLeft: "auto", marginRight: "auto" }}
+        className={`h12 fixed top-5 z-10 mt-4 flex inset-x-0 flex-col items-center justify-center gap-6 overflow-hidden rounded-lg lg:rounded-full [--for-height-closed:3rem] [--for-height:auto] [--for-padding:16px] [--for-width:48px] [--ml:16px] lg:sticky lg:flex-row lg:overflow-hidden lg:[--for-height-closed:96px] lg:[--for-height:6rem] lg:[--for-padding:2rem] 
+        ${window.innerWidth < 1024 && "bg-[#faf6f0]"}
+         lg:[--for-width:96px] lg:[--ml:32px] ${navOpen ? "p-0 lg:justify-between lg:p-8" : "lg:justify-center"} ${colorOn && "bg-[#faf6f0]"} drop-shadow-lg `}
+        initial={{
+          width: "97%",
+          marginLeft: "auto",
+          marginRight: "auto",
+          height: "var(--for-height)",
+        }}
         animate={
           !navOpen
             ? {
+                paddingTop: 0,
                 width: "var(--for-width)",
                 marginLeft: "var(--ml)",
+                height: "var(--for-height-closed)",
               }
             : {
+                paddingTop: "var(--for-padding)",
                 width: "97%",
                 marginLeft: "auto",
                 marginRight: "auto",
+                height: "var(--for-height)",
               }
         }
         transition={{
@@ -71,6 +84,7 @@ const Navbar = (props: Props) => {
           marginRight: !navOpen ? { delay: 0 } : { delay: 0.8 },
         }}
       >
+        {/* logo */}
         <div className={`flex h-10 items-center justify-center lg:h-20`}>
           <div
             className={` flex items-center justify-center gap-x-2 transition-all`}
@@ -92,16 +106,16 @@ const Navbar = (props: Props) => {
         </div>
         {navOpen && (
           <>
-            <div className="hidden items-center justify-center gap-x-12 lg:flex">
+            <div className=" flex w-full flex-col items-center justify-center gap-x-12 lg:w-auto lg:flex-row">
               {pages.map((page, index) => {
                 const href = `/opportunities/${page.toLowerCase().replace("-", "")}`;
                 return (
                   <Link
+                    className="flex h-16 w-full items-center justify-center rounded-xl text-lg transition-colors duration-200 hover:bg-slate-500 lg:w-auto"
                     key={index}
                     onMouseEnter={() => {
                       router.prefetch(href);
                     }}
-                    className="text-lg"
                     href={href}
                   >
                     {page}

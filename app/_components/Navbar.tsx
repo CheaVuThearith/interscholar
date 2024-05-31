@@ -21,6 +21,7 @@ const Navbar = (props: Props) => {
   const [colorOn, setColorOn] = useState(false);
   useEffect(() => {
     setNavOpen(window.innerWidth < 1024 ? false : true);
+    setColorOn(window.innerWidth >= 1024 ? false : true);
   }, []);
 
   useEffect(() => {
@@ -29,7 +30,7 @@ const Navbar = (props: Props) => {
         if (window.scrollY > 16 && navOpen) {
           setNavOpen(false);
           setColorOn(true);
-        } else if (window.scrollY < 16) {
+        } else if (window.scrollY < 16 && window.innerWidth > 1024) {
           setColorOn(false);
           setNavOpen(true);
         }
@@ -54,7 +55,6 @@ const Navbar = (props: Props) => {
         }}
         ref={NavbarRef}
         className={`h12 fixed inset-x-0 top-5 z-10 mt-4 flex flex-col items-center justify-center gap-6 overflow-hidden rounded-lg [--for-height-closed:3rem] [--for-height:auto] [--for-padding:16px] [--for-width:48px] [--ml:16px] lg:sticky lg:flex-row lg:overflow-hidden lg:rounded-full lg:[--for-height-closed:96px] lg:[--for-height:6rem] lg:[--for-padding:2rem] 
-        ${window.innerWidth < 1024 && "bg-[#faf6f0]"}
          lg:[--for-width:96px] lg:[--ml:32px] ${navOpen ? "p-0 lg:justify-between lg:p-8" : "lg:justify-center"} ${colorOn && "bg-[#faf6f0]"} drop-shadow-lg `}
         initial={{
           width: "97%",

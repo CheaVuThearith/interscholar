@@ -111,7 +111,7 @@ const Navbar = (props: Props) => {
                 const href = `/opportunities/${page.toLowerCase().replace("-", "")}`;
                 return (
                   <Link
-                    className="flex h-16 w-full items-center justify-center rounded-xl text-lg transition-colors duration-200 hover:bg-slate-500 lg:w-auto"
+                    className="flex h-16 w-full items-center justify-center rounded-xl text-lg transition-colors duration-200 lg:hover:bg-transparent hover:bg-slate-500 lg:w-auto"
                     key={index}
                     onMouseEnter={() => {
                       router.prefetch(href);

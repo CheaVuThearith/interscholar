@@ -17,10 +17,11 @@ const Navbar = (props: Props) => {
   ];
 
   const NavbarRef = useRef<HTMLDivElement>(null);
-  const [navOpen, setNavOpen] = useState(
-    window.innerWidth < 1024 ? false : true
-  );
+  const [navOpen, setNavOpen] = useState(true);
   const [colorOn, setColorOn] = useState(false);
+  useEffect(() => {
+    setNavOpen(window.innerWidth < 1024 ? false : true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {

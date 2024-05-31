@@ -2,9 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+.hide_scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.hide_scroll {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 @keyframes loading {
-  fro
-  m {
+  from {
     background-position-x: 100%;
   }
   to {

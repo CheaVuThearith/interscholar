@@ -62,7 +62,7 @@ const OpportunitiesPage = ({ params, info, amountOfPages }: Props) => {
   useEffect(() => {}, [selectedId]);
   return (
     <>
-      <div className="relative mx-auto mt-20 flex min-h-[150vh] max-w-screen-2xl flex-col items-start justify-around gap-y-20 px-4 lg:flex-row lg:px-8">
+      <div className="relative mx-auto mt-20 flex min-h-[150vh] max-w-screen-2xl flex-col items-center lg:items-start justify-around gap-y-20 px-4 lg:flex-row lg:px-8">
         {/* filters */}
         <FilterMenu
           filterOptions={
@@ -105,10 +105,10 @@ const OpportunitiesPage = ({ params, info, amountOfPages }: Props) => {
               )}
             </AnimatePresence>
           </div>
-          <PaginationControls
+         {amountOfPages > 1 && <PaginationControls
             className=" mx-auto lg:me-10 lg:ms-auto"
             amountOfPages={Math.ceil(amountOfPages)}
-          />
+          />}
         </div>
       </div>
     </>

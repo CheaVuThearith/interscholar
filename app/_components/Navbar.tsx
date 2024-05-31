@@ -1,6 +1,5 @@
 "use client";
 import { easeInOut, motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -53,7 +52,7 @@ const Navbar = (props: Props) => {
           }
         }}
         ref={NavbarRef}
-        className={`h12 fixed top-5 z-10 mt-4 flex inset-x-0 flex-col items-center justify-center gap-6 overflow-hidden rounded-lg lg:rounded-full [--for-height-closed:3rem] [--for-height:auto] [--for-padding:16px] [--for-width:48px] [--ml:16px] lg:sticky lg:flex-row lg:overflow-hidden lg:[--for-height-closed:96px] lg:[--for-height:6rem] lg:[--for-padding:2rem] 
+        className={`h12 fixed inset-x-0 top-5 z-10 mt-4 flex flex-col items-center justify-center gap-6 overflow-hidden rounded-lg [--for-height-closed:3rem] [--for-height:auto] [--for-padding:16px] [--for-width:48px] [--ml:16px] lg:sticky lg:flex-row lg:overflow-hidden lg:rounded-full lg:[--for-height-closed:96px] lg:[--for-height:6rem] lg:[--for-padding:2rem] 
         ${window.innerWidth < 1024 && "bg-[#faf6f0]"}
          lg:[--for-width:96px] lg:[--ml:32px] ${navOpen ? "p-0 lg:justify-between lg:p-8" : "lg:justify-center"} ${colorOn && "bg-[#faf6f0]"} drop-shadow-lg `}
         initial={{
@@ -135,5 +134,4 @@ const Navbar = (props: Props) => {
     </>
   );
 };
-// TODO: make nav hamburger
 export default Navbar;

@@ -84,7 +84,7 @@ const OpportunitiesPage = ({ params, info, amountOfPages }: Props) => {
                   image={entry.image}
                   onClick={() => setSelectedId(index)}
                   layoutId={index}
-                  key={index}
+                  key={`eventCard_${index}`}
                   link={entry.link}
                   title={entry.title}
                   deadline={entry.deadline}

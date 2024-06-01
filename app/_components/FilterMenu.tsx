@@ -52,7 +52,7 @@ const FilterMenu = ({ filterOptions }: Props) => {
               const filterId = filter.replaceAll(" ", "").toLowerCase();
               return (
                 <motion.li
-                  key={index}
+                key={`filterList_${index}`}
                   variants={variants}
                   onClick={() => {
                     if (!activeFilters.includes(filterId)) {

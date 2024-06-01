@@ -15,7 +15,9 @@ const Footer = (props: Props) => {
       <div className="mx-auto flex max-w-screen-2xl flex-wrap items-center justify-center gap-8 md:justify-between">
         <ul className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-center text-base md:justify-start">
           {linkLists.map((link, index) => (
-            <li key={index}>
+            <li 
+            key={`footer_${index}`}
+            >
               <a href={`/${link.replace(" ", "").toLowerCase()}`}>{link}</a>
             </li>
           ))}

@@ -38,7 +38,7 @@ gap-y-20 xl:items-stretch"
         <RecentCardsContainer>
           {scholarships.map((scholarship, index) => (
             <RecentAddCard
-              key={index}
+            key={`recentCard_${index}`}
               deadline={scholarship.deadline}
               description={scholarship.description}
               image={scholarship.image}

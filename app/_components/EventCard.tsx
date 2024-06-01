@@ -96,14 +96,14 @@ const EventCard = ({
                 className="flex w-1/2 flex-col gap-y-1"
               >
                 <motion.p className={`text-ellipsis whitespace-nowrap overflow-hidden flex w-full items-center gap-x-1`}>
-                  {title && <CalendarDaysIcon className="size-7 shrink-0" />}{" "}
-                  <motion.span className={` w-full rounded-md`}>
+                  {title && <CalendarDaysIcon className="size-7 shrink-0" />}
+                  <motion.span className={`w-full rounded-md`}>
                     {deadline &&
-                      `${deadline.getDate()}/${deadline.getMonth()}/${deadline.getFullYear()}`}
+                      `${deadline.getDate()}/${deadline.getMonth()+1}/${deadline.getFullYear()}`}
                   </motion.span>
                 </motion.p>
                 <motion.p className={`text-ellipsis whitespace-nowrap overflow-hidden flex w-full items-center gap-x-1`}>
-                  {title && <MapPinIcon className="size-7 shrink-0" />}{" "}
+                  {title && <MapPinIcon className="size-7 shrink-0" />}
                   <motion.span className={` w-full rounded-md`}>
                     {location}
                   </motion.span>

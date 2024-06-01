@@ -34,48 +34,48 @@ const PaginationControls = ({ amountOfPages, className }: Props) => {
         <ArrowLeftIcon className="size-8" />
       </button>
       {amountOfPages < 5
-        ? Array(amountOfPages)
-            .fill("")
-            .map((_, index) => (
-              <button
-                key={index + 1}
-                onClick={() => toPage(index + 1)}
-                className={`active:scale-125 transition-all duration-200 flex size-10 items-center justify-center rounded-lg ${page === index + 1 ? "bg-white" : "bg-[#f5f5f5]"}`}
-              >
-                {index + 1}
-              </button>
-            ))
-        : [
-            <button
-              key={1}
-              onClick={() => toPage(1)}
-              className={`active:scale-125 transition-all duration-200 flex size-10 items-center justify-center rounded-lg ${page === 1 ? "bg-white" : "bg-[#f5f5f5]"}`}
-            >
-              1
-            </button>,
-            page < amountOfPages && (
-              <button
-                key="current"
-                onClick={() => toPage(page > 2 ? page : 2)}
-                className={`active:scale-125 transition-all duration-200 ${ page >= 2 ? "bg-white" : "bg-[#f5f5f5]"} flex size-10 items-center justify-center rounded-lg`}
-              >
-                {page > 2 ? page : 2}
-              </button>
-            ),
-            <button
-              key="..."
-              className={`flex size-10 items-center justify-center rounded-lg bg-[#f5f5f5]`}
-            >
-              ...
-            </button>,
-            <button
-              key="last"
-              onClick={() => toPage(amountOfPages)}
-              className={`active:scale-125 transition-all duration-200 flex size-10 items-center justify-center rounded-lg ${page === amountOfPages ? "bg-white" : "bg-[#f5f5f5]"}`}
-            >
-              {amountOfPages}
-            </button>,
-          ]}
+  ? Array(amountOfPages)
+      .fill("")
+      .map((_, index) => (
+        <button
+        key={`pagination_${index+1}`}
+          onClick={() => toPage(index + 1)}
+          className={`active:scale-125 transition-all duration-200 flex size-10 items-center justify-center rounded-lg ${page === index + 1 ? "bg-white" : "bg-[#f5f5f5]"}`}
+        >
+          {index + 1}
+        </button>
+      ))
+  : [
+      <button
+      key={`pagination_${1}`}
+        onClick={() => toPage(1)}
+        className={`active:scale-125 transition-all duration-200 flex size-10 items-center justify-center rounded-lg ${page === 1 ? "bg-white" : "bg-[#f5f5f5]"}`}
+      >
+        1
+      </button>,
+      page < amountOfPages && (
+        <button
+        key={`pagination_current_${page}`}
+          onClick={() => toPage(page > 2 ? page : 2)}
+          className={`active:scale-125 transition-all duration-200 ${ page >= 2 ? "bg-white" : "bg-[#f5f5f5]"} flex size-10 items-center justify-center rounded-lg`}
+        >
+          {page > 2 ? page : 2}
+        </button>
+      ),
+      <button
+        key={`pagination_ellipsis_${page}`}
+        className={`flex size-10 items-center justify-center rounded-lg bg-[#f5f5f5]`}
+      >
+        ...
+      </button>,
+      <button
+      key={`pagination_last_${amountOfPages}`}
+        onClick={() => toPage(amountOfPages)}
+        className={`active:scale-125 transition-all duration-200 flex size-10 items-center justify-center rounded-lg ${page === amountOfPages ? "bg-white" : "bg-[#f5f5f5]"}`}
+      >
+        {amountOfPages}
+      </button>,
+    ]}
       <button
         onClick={nextPage}
         className="active:scale-125 transition-all duration-200 flex size-10 items-center justify-center rounded-lg bg-[#f5f5f5]"

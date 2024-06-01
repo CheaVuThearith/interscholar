@@ -101,7 +101,7 @@ const Navbar = (props: Props) => {
                       }
                     }}
                     className="flex h-16 w-full items-center justify-center rounded-xl text-lg transition-colors hover:bg-slate-500 lg:w-auto lg:hover:bg-transparent"
-                    key={index}
+                  key={`navbar_${index}`}
                     onMouseEnter={() => {
                       router.prefetch(href);
                     }}

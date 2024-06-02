@@ -18,6 +18,7 @@ const FilterMenu = ({ filterOptions }: Props) => {
   const searchParams = useSearchParams();
   const page = "1";
   const itemsPerPage = searchParams.get("itemsPerPage") ?? "9";
+  const filterString = searchParams.get("filterList") ?? "";
   useEffect(() => {
     const params = new URLSearchParams();
     params.set("filterList", activeFilters.join(","));
@@ -25,7 +26,11 @@ const FilterMenu = ({ filterOptions }: Props) => {
     params.set("itemsPerPage", itemsPerPage);
     router.push(`?${params.toString()}`);
   }, [activeFilters, router, itemsPerPage, page]);
-
+  useEffect(() => {
+    const filterList =
+      filterString.split(",")[0] === "" ? [] : filterString.split(",");
+    setActiveFilters(filterList);
+  }, [filterString]);
   return (
     <div className="top-40 flex h-full w-full shrink-0 grow-0 flex-col items-center justify-start gap-y-10 overflow-hidden lg:sticky lg:w-[300px] lg:items-start">
       <motion.button
@@ -52,7 +57,7 @@ const FilterMenu = ({ filterOptions }: Props) => {
               const filterId = filter.replaceAll(" ", "").toLowerCase();
               return (
                 <motion.li
-                key={`filterList_${index}`}
+                  key={`filterList_${index}`}
                   variants={variants}
                   onClick={() => {
                     if (!activeFilters.includes(filterId)) {

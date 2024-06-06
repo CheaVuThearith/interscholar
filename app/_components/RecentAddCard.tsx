@@ -56,6 +56,7 @@ const RecentAddCard = ({
 
       <a
         href={link}
+        target="_blank"
         className="group mt-2 flex size-24 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-[#333333] font-semibold shadow-black hover:shadow-md"
       >
         <ArrowRightIcon className="size-12 fill-white transition-all duration-200 group-hover:scale-125" />

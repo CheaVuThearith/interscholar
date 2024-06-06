@@ -92,6 +92,7 @@ const EventCardExpand = ({
         </motion.div>
         {/* readmore button */}
         <motion.a
+          target="_blank"
           href={link}
           layoutId={`button${layoutId}`}
           className="mt-2 flex items-center justify-center gap-x-2 rounded-xl bg-[#85a6bc] px-3 py-2 text-center font-semibold text-white shadow-black hover:shadow-md"

@@ -82,7 +82,7 @@ const EventCardExpand = ({
             <CalendarDaysIcon className="size-7 shrink-0" />
             <span className={`rounded-md`}>
               {deadline &&
-                `${deadline.getDate()}/${deadline.getMonth()}/${deadline.getFullYear()}`}
+                `${deadline.getDate()}/${deadline.getMonth() + 1}/${deadline.getFullYear()}`}
             </span>
           </p>
           <p className={`flex items-center gap-x-1`}>

@@ -1,7 +1,5 @@
-import React from "react";
-import RecentAddCard from "../RecentAddCard";
-import { usePathname } from "next/navigation";
 import { Scholarship } from "@/lib/mongo";
+import RecentAddCard from "../RecentAddCard";
 import RecentCardsContainer from "../RecentCardsContainer";
 
 type Props = {};

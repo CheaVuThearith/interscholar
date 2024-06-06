@@ -45,7 +45,7 @@ const EventCard = ({
       }}
       layoutId={layoutId?.toString()}
       whileHover={{ scale: 1.05 }}
-      className={`select-none flex h-full max-w-[368px] cursor-pointer flex-col items-start justify-between gap-y-3 self-start justify-self-center rounded-xl bg-white p-6 shadow-xl lg:hover:scale-105`}
+      className={`flex h-full max-w-[368px] cursor-pointer select-none flex-col items-start justify-between gap-y-3 self-start justify-self-center rounded-xl bg-white p-6 shadow-xl lg:hover:scale-105`}
     >
       <motion.div className="flex flex-col gap-y-3">
         {title ? (
@@ -64,12 +64,12 @@ const EventCard = ({
           className="flex w-80 flex-col items-start gap-y-1"
         >
           <motion.p
-            className={`w-full text-ellipsis whitespace-nowrap overflow-hidden text-xl font-semibold  ${!title && "loading h-7"} rounded-md text-[#85a6bc]`}
+            className={`w-full overflow-hidden text-ellipsis whitespace-nowrap text-xl font-semibold  ${!title && "loading h-7"} rounded-md text-[#85a6bc]`}
           >
             {title}
           </motion.p>
           <motion.p
-            className={`w-full text-[#515050] text-ellipsis whitespace-nowrap overflow-hidden ${!title && "loading h-7"} rounded-md`}
+            className={`w-full overflow-hidden text-ellipsis whitespace-nowrap text-[#515050] ${!title && "loading h-7"} rounded-md`}
           >
             {organization}
           </motion.p>
@@ -95,14 +95,18 @@ const EventCard = ({
                 layoutId={`date${layoutId}`}
                 className="flex w-1/2 flex-col gap-y-1"
               >
-                <motion.p className={`text-ellipsis whitespace-nowrap overflow-hidden flex w-full items-center gap-x-1`}>
+                <motion.p
+                  className={`flex w-full items-center gap-x-1 overflow-hidden text-ellipsis whitespace-nowrap`}
+                >
                   {title && <CalendarDaysIcon className="size-7 shrink-0" />}
                   <motion.span className={`w-full rounded-md`}>
                     {deadline &&
-                      `${deadline.getDate()}/${deadline.getMonth()+1}/${deadline.getFullYear()}`}
+                      `${deadline.getDate()}/${deadline.getMonth() + 1}/${deadline.getFullYear()}`}
                   </motion.span>
                 </motion.p>
-                <motion.p className={`text-ellipsis whitespace-nowrap overflow-hidden flex w-full items-center gap-x-1`}>
+                <motion.p
+                  className={`flex w-full items-center gap-x-1 overflow-hidden text-ellipsis whitespace-nowrap`}
+                >
                   {title && <MapPinIcon className="size-7 shrink-0" />}
                   <motion.span className={` w-full rounded-md`}>
                     {location}
